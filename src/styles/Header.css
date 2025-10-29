@@ -1,0 +1,233 @@
+/* Header.css */
+
+/* Header CSS */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #c06252;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: left 0.3s ease, width 0.3s ease;
+}
+
+/* Khi sidebar mở */
+.sidebar-open .header {
+  left: 320px;
+  width: calc(100% - 320px);
+}
+
+/* Khi sidebar đóng */
+.sidebar-closed .header {
+  left: 0;
+  width: 100%;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.logo-img {
+  height: 32px;
+  width: auto;
+}
+
+.company-name {
+  font-weight: bold;
+  margin-left: 10px;
+  font-size: 18px;
+  color: white;
+}
+
+.toggle-btn {
+  background: rgba(246, 246, 246, 0.1);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s;
+  margin-right: 15px;
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+/* Search Container - Luôn nằm bên phải chữ "Nhân sự" với khoảng cách 30px */
+.search-container {
+  margin-left: 30px; /* Khoảng cách 30px từ chữ "Nhân sự" */
+  transition: all 0.3s ease;
+}
+
+.search-form {
+  display: flex;
+}
+
+.search-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 8px 40px 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  width: 300px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #c06252;
+  box-shadow: 0 0 0 2px rgba(192, 98, 82, 0.25);
+}
+
+.search-button {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button:hover {
+  background-color: #f8f9fa;
+  color: #c06252;
+}
+
+/* User Menu */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
+}
+
+.user-name {
+  font-weight: 500;
+  color: white;
+}
+
+.logout-btn, .login-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover, .login-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive for Header */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 15px;
+  }
+  
+  .sidebar-open .header,
+  .sidebar-closed .header {
+    left: 0;
+    width: 100%;
+  }
+  
+  .company-name {
+    font-size: 1.1rem;
+  }
+  
+  .user-name {
+    display: none;
+  }
+  
+  .search-container {
+    margin-left: 20px;
+    flex: 1;
+  }
+  
+  .search-input {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    padding: 0 10px;
+  }
+  
+  .company-name {
+    font-size: 1rem;
+  }
+  
+  .logo-img {
+    height: 28px;
+  }
+  
+  .toggle-btn {
+    padding: 6px 8px;
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+  
+  .search-container {
+    margin-left: 15px;
+  }
+  
+  .search-input {
+    width: 100%;
+    max-width: 200px;
+    font-size: 13px;
+    padding: 6px 35px 6px 10px;
+  }
+  
+  .logout-btn, .login-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  /* Trên mobile rất nhỏ, ẩn tên công ty */
+  @media (max-width: 400px) {
+    .company-name {
+      display: none;
+    }
+    
+    .search-container {
+      margin-left: 10px;
+    }
+    
+    .search-input {
+      max-width: 150px;
+    }
+  }
+}

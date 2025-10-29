@@ -1,0 +1,98 @@
+/* Layout.css */
+
+/* Layout */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+}
+
+/* Main content adjustment */
+.main-content {
+  flex: 1;
+  padding: 0;
+  background: #f8f9fa;
+  overflow-y: auto;
+  width: 100%;
+  margin-left: 0;
+  margin-top: 60px; /* For fixed header */
+  transition: margin-left 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* Sử dụng class layout thay vì sibling selector */
+.sidebar-open .main-content {
+  margin-left: 320px;
+  width: calc(100% - 320px);
+}
+
+.sidebar-closed .main-content {
+  margin-left: 0;
+  width: 100%;
+}
+
+/* Footer */
+.footer {
+  background: #f8f9fa;
+  padding: 15px 20px;
+  text-align: center;
+  color: #666;
+  border-top: 1px solid #e0e0e0;
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-open .footer {
+  margin-left: 320px;
+}
+
+.sidebar-closed .footer {
+  margin-left: 0;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Page Container */
+.page-container {
+  padding: 20px;
+  background: white;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  min-height: 400px;
+}
+
+.page-container h1 {
+  color: #c06252;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+/* Responsive for Layout */
+@media (max-width: 768px) {
+  .sidebar-open .main-content,
+  .sidebar-closed .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .sidebar-open .footer,
+  .sidebar-closed .footer {
+    margin-left: 0;
+  }
+  
+  .page-container {
+    margin: 10px;
+    padding: 15px;
+  }
+}
