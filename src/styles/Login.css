@@ -178,3 +178,119 @@
     padding: 25px 15px;
   }
 }
+/* ===== Nền toàn trang login ===== */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #000; /* fallback nếu ảnh không load */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Lớp mờ phủ lên ảnh để dễ đọc chữ */
+.login-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+/* Hộp đăng nhập */
+.login-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Animation nhẹ khi hiện */
+@keyframes slideIn {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Tiêu đề */
+.login-header h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #c06252;
+  font-weight: 700;
+}
+
+/* Các input và nút */
+.login-form .form-group {
+  margin-bottom: 16px;
+}
+
+.login-form label {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.login-form input:focus {
+  border-color: #c06252;
+  box-shadow: 0 0 0 3px rgba(192, 98, 82, 0.25);
+}
+
+/* Nút đăng nhập */
+.login-btn {
+  width: 100%;
+  background: #c06252;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.login-btn:hover {
+  background-color: #aa5044;
+}
+
+/* Link đăng ký */
+.form-footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.form-footer a {
+  color: #c06252;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}

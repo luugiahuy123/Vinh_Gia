@@ -1,0 +1,105 @@
+/* .emp-table-wrap { border:1px solid #eee; border-radius:14px; overflow:hidden; background:#fff; box-shadow:0 2px 10px rgba(18,18,18,.05); } */
+.emp-table { width:100%; border-collapse:separate; border-spacing:0; font-size:14px; }
+.emp-table thead th { background:#faf7f6; color:#744a42; text-align:left; padding:12px 14px; font-weight:700; border-bottom:1px solid #eee; position:sticky; top:0; z-index:1; }
+.emp-table tbody td { padding:11px 14px; border-bottom:1px solid #f3f3f3; color:#222; }
+.emp-table tbody tr:hover { background:#fff6f4; }
+
+/* actions + dropdown */
+.emp-actions{ position:relative; }
+.emp-dropdown{ position:absolute; right:8px; top:36px; min-width:140px; background:#fff; border:1px solid #eee; border-radius:10px;
+  box-shadow:0 10px 24px rgba(0,0,0,.08); padding:6px; display:none; z-index:20; }
+.emp-dropdown.open{ display:block; }
+.emp-dd-item{ width:100%; text-align:left; padding:8px 10px; border:none; background:transparent; border-radius:8px; cursor:pointer; font-size:13px; }
+.emp-dd-item:hover{ background:#fff3f0; }
+.emp-dd-item.danger{ color:#b00020; }
+.emp-dd-item.danger:hover{ background:#ffe8ec; }
+
+/* Mobile: table -> cards */
+@media (max-width:720px){
+  .emp-table, .emp-table thead, .emp-table tbody, .emp-table th, .emp-table td, .emp-table tr { display:block; width:100%; }
+  .emp-table thead{ position:absolute; top:-9999px; left:-9999px; height:0; overflow:hidden; }
+  .emp-table tbody tr{ background:#fff; border:1px solid #eee; border-radius:12px; margin:10px 10px 12px; padding:8px 10px; box-shadow:0 1px 8px rgba(0,0,0,.04); }
+  .emp-table tbody td{ border:none; border-bottom:1px dashed #f0e7e5; position:relative; padding:10px 10px 10px 120px; min-height:42px; }
+  .emp-table tbody td:last-child{ border-bottom:none; }
+  .emp-table tbody td::before{ content:attr(data-label); position:absolute; left:10px; top:10px; width:100px; font-size:12px; color:#8b8b8b; font-weight:600; white-space:nowrap; }
+  .emp-dropdown{ right:0; top:42px; }
+}
+@media (max-width:380px){
+  .emp-table tbody td{ padding-left:110px; }
+  .emp-table tbody td::before{ width:95px; }
+}
+/* Cột thao tác vẫn relative để giữ layout nút */
+.emp-actions { position: relative; }
+
+/* Dropdown bật ngoài bảng bằng position:fixed */
+.emp-dropdown-fixed {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  padding: 6px 0;
+  z-index: 4000; /* cao để không bị che */
+}
+
+.emp-dd-item {
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.emp-dd-item:hover { background:#fff3f0; }
+.emp-dd-item.danger { color:#b00020; }
+.emp-dd-item.danger:hover { background:#ffe8ec; }
+
+/* Mobile: giới hạn max-width theo màn hình */
+@media (max-width: 720px) {
+  .emp-dropdown-fixed {
+    max-width: calc(100vw - 16px);
+  }
+}
+.emp-row:hover {
+  background: #f9fafb;
+  transition: background 0.2s;
+}
+
+.emp-context-menu button {
+  display: block;
+  width: 100%;
+  padding: 8px 14px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.emp-context-menu button:hover {
+  background: #f1f5f9;
+}
+
+.emp-context-menu .danger:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.emp-pager .emp-page-btn {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.emp-pager .emp-page-btn:hover { background: #f9fafb; }
+.emp-pager .emp-page-btn:disabled { opacity: .5; cursor: not-allowed; }
+.emp-pager .emp-page-btn.active {
+  border-color: #2563eb;
+  background: #dbeafe;
+  font-weight: 600;
+}
+.emp-pager .emp-ellipsis { padding: 0 4px; }
+.emp-overlay{ position:absolute; inset:0; overflow:visible; pointer-events:none; }
+.emp-overlay .context-menu{ pointer-events:auto; }

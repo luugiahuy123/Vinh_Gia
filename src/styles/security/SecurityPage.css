@@ -1,0 +1,150 @@
+.security-page {
+  padding: 20px;
+  background: #f9fafb;
+  color: #0f172a;
+}
+
+.security-page > h2 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.sec-grid {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 960px) {
+  .sec-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.sec-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.sec-card-header {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 10px 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.sec-card-body {
+  padding: 12px 14px 16px;
+}
+/* Nút bấm gập/mở section */
+.sec-toggle {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.sec-toggle:hover {
+  background: #f8fafc;
+}
+
+.sec-toggle-icon {
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* Giữ style thẻ section */
+.sec-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.sec-card-header {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 10px 14px;
+}
+
+.sec-card-body {
+  padding: 12px 14px 16px;
+}
+/* ================================
+   Tabs ngang cho nhiều nút có thể mở cùng lúc
+==================================*/
+.security-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.sec-tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px 12px;
+  font-weight: 600;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  cursor: pointer;
+  color: #334155;
+  transition: all 0.2s ease;
+}
+
+.sec-tab:hover {
+  background: #f1f5f9;
+}
+
+.sec-tab.active {
+  background: #0ea5e9;
+  color: #fff;
+  border-color: #0ea5e9;
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.3);
+}
+
+/* ================================
+   Nội dung phần mở ra
+==================================*/
+.security-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sec-section {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.sec-section h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: #0f172a;
+}
+
+@media (max-width: 768px) {
+  .sec-tab {
+    flex: 100%;
+  }
+}
+
+

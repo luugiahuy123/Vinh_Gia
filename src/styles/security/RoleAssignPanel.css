@@ -1,0 +1,49 @@
+.role-assign-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.role-assign-panel h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.role-assign-panel table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.role-assign-panel th,
+.role-assign-panel td {
+  padding: 6px 10px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.role-assign-panel th {
+  background: #f1f5f9;
+  color: #334155;
+  font-weight: 600;
+}
+
+.role-assign-panel button {
+  background: #0ea5e9;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.role-assign-panel button.remove {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.role-assign-panel button:hover {
+  opacity: 0.9;
+}

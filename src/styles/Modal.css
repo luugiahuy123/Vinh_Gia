@@ -1,0 +1,259 @@
+:root {
+  --brand: #0e6481;          /* màu chủ đạo */
+  --brand-600: #b25747;
+  --brand-700: #9f4e40;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --ring: rgba(192, 98, 82, 0.35);   /* ring theo brand */
+  --border: #e5e7eb;
+  --shadow: 0 12px 36px rgba(0,0,0,.18);
+}
+
+/* Dark mode nhẹ (nếu bạn có class .theme-dark ở html/body/app) */
+.theme-dark :root, [data-theme="dark"] :root {
+  --bg: #0b1220;
+  --surface: #0f172a;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --border: #243246;
+  --shadow: 0 12px 36px rgba(0,0,0,.5);
+}
+
+/* ===== Overlay ===== */
+.emp-modal-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,.45);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  display:flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 12px;
+  z-index: 2000;
+  animation: overlayIn .18s ease-out;
+}
+@keyframes overlayIn{
+  from{ opacity: 0; }
+  to  { opacity: 1; }
+}
+
+/* ===== Content shell ===== */
+.emp-modal-content{
+  width: min(960px, 96vw);
+  max-height: 86vh;
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  outline: none;
+  box-shadow: var(--shadow);
+  display:flex;
+  flex-direction: column;
+  overflow:hidden;
+  animation: modalIn .16s ease-out;
+}
+@keyframes modalIn{
+  from{ transform: translateY(8px) scale(.98); opacity: 0; }
+  to  { transform: translateY(0)   scale(1);    opacity: 1; }
+}
+
+/* ===== Header / Body / Footer ===== */
+.emp-modal-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(192,98,82,.06), transparent);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.emp-modal-title{
+    color: #0e6481;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+.emp-modal-sub{
+  font-size: 12px;
+  color: var(--muted);
+  margin-left:auto;
+}
+
+.emp-modal-body{
+  padding: 16px;
+  overflow: auto;
+}
+
+/* grid form (tự động 2 cột trên màn lớn, 1 cột mobile) */
+.emp-form-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 768px){
+  .emp-form-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.emp-modal-footer{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(192,98,82,.06), transparent), var(--surface);
+  z-index: 1;
+}
+
+/* ===== Inputs / Field ===== */
+.emp-field{
+  display:flex;
+  flex-direction: column;
+  gap:6px;
+}
+.emp-field label{
+  color: #0e6481;
+  font-size: 13px;
+  font-weight: 600;
+}
+.emp-input, .emp-select, .emp-textarea{
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  transition: box-shadow .12s ease, border-color .12s ease, background .12s;
+}
+.emp-input:focus,
+.emp-select:focus,
+.emp-textarea:focus{
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+.emp-help{
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ===== Buttons ===== */
+.btn{
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .04s ease, box-shadow .12s ease, background .12s, border-color .12s;
+}
+.btn:active{ transform: translateY(1px); }
+
+.btn-primary{
+  background: #fff;
+  border-color: #0e6481;
+  color: #0e6481;
+}
+.btn-primary:hover{ background:  var(--brand-600) } 
+.btn-primary:hover{ background:  #fbeeeb; } 
+.btn-primary:focus{ box-shadow: 0 0 0 4px var(--ring); }
+
+.btn-ghost{
+    background: #fff;
+  border-color: #0e6481;
+  color: #0e6481;
+}
+.btn-ghost:hover{ background: #fbeeeb; }
+
+.btn-danger{
+  background: #fff;
+  border-color: #0e6481;
+  color: #0e6481;
+}
+.btn-danger:hover{ background: #fbeeeb; }
+
+/* Close (X) icon style nếu dùng icon riêng */
+.icon-btn{
+  border: none;
+  background: transparent;
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  display:grid; place-items:center;
+  cursor:pointer;
+}
+.icon-btn:hover{ background: rgba(15,23,42,.06); }
+.icon-btn:focus{ box-shadow: 0 0 0 4px var(--ring); }
+
+/* ===== Utility block / section ===== */
+.emp-section{
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  background: var(--bg);
+}
+
+/* Scrollbar gọn gàng (WebKit) */
+.emp-modal-body::-webkit-scrollbar{ width: 10px; }
+.emp-modal-body::-webkit-scrollbar-thumb{
+  background: rgba(15,23,42,.16);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+@media (min-width: 1024px){
+  .emp-form-grid{ grid-template-columns: repeat(2, 1fr); } /* mặc định 2 */
+  .emp-form-grid.is-4cols{ grid-template-columns: repeat(4, 1fr); }
+}
+/* Thu nhỏ modal cho trang hồ sơ */
+.emp-modal-content.emp-modal-sm { width: min(720px, 96vw); }
+
+/* Card gọn */
+.emp-card{
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  background: var(--bg);
+}
+
+/* Uploader ảnh chân dung */
+.avatar-wrap{
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+}
+.avatar{
+  width: 112px; height: 112px; border-radius: 999px; overflow:hidden;
+  border: 2px solid rgba(192,98,82,.35); background:#f3f4f6;
+  display:grid; place-items:center;
+}
+.avatar img{ width:100%; height:100%; object-fit: cover; }
+.avatar-hint{ font-size:12px; color: var(--muted); }
+
+.btn-sm{ padding:8px 12px; border-radius:10px; font-size:14px; }
+
+/* Bảng gọn cho Roles / Modules / Actions */
+.emp-table{
+  width:100%; border-collapse: collapse; font-size: 14px;
+  border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+}
+.emp-table th, .emp-table td{
+  padding:10px 12px; border-bottom:1px solid var(--border); text-align:left;
+}
+.emp-table thead th{
+  color: white;
+  background: #0e6481;
+  font-weight:700;
+}
+.emp-table tr:last-child td{ border-bottom: none; }
+.badge{
+  display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px;
+  background: rgba(192,98,82,.12); color:#0e6481; border:1px solid rgba(192,98,82,.22);
+}
+

@@ -1,0 +1,22 @@
+.roles-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.roles-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.roles-section th,
+.roles-section td {
+  padding: 6px 10px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.roles-section th {
+  background: #f1f5f9;
+  color: #334155;
+  font-weight: 600;
+}

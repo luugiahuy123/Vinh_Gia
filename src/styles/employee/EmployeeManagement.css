@@ -1,0 +1,368 @@
+/* ===== Layout hai cột: trái = bảng, phải = deck chi tiết ===== */
+.emp-layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(340px, 36vw);
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .emp-layout {
+    grid-template-columns: 1fr;
+  }
+  .emp-right {
+    order: 2;
+  }
+}
+
+/* ===== Wrapper chung ===== */
+.emp-wrap {
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* ===== Header + Search ===== */
+.emp-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.emp-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2b2b2b;
+}
+
+.emp-search {
+  min-width: 280px;
+  padding: 8px 12px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.2s border, 0.2s box-shadow;
+}
+
+.emp-search:focus {
+  border-color: #c06252;
+  box-shadow: 0 0 0 4px rgba(192, 98, 82, 0.12);
+}
+
+/* ===== Nút chung ===== */
+.emp-btn {
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s background, 0.2s box-shadow, 0.2s transform;
+}
+
+.emp-btn:hover {
+  background: #fff3f0;
+  box-shadow: 0 2px 10px rgba(192, 98, 82, 0.15);
+}
+
+.emp-btn.ghost {
+  background: transparent;
+}
+
+/* ===== Panel phải (deck xem nhiều người) — nếu còn dùng ===== */
+.emp-right {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
+  box-shadow: 0 2px 10px rgba(18,18,18,0.05);
+}
+
+.emp-right-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px;
+  background: #faf7f6;
+  border-bottom: 1px solid #eee;
+}
+
+.emp-right-title {
+  font-weight: 700;
+  color: #744a42;
+}
+
+.emp-right-actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.emp-deck {
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  overflow: auto;
+  max-height: calc(100vh - 260px);
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 1280px) {
+  .emp-deck {
+    grid-template-columns: 1fr;
+  }
+}
+
+.emp-deck-empty {
+  color: #999;
+  text-align: center;
+  padding: 24px 12px;
+}
+
+/* ===== Card chi tiết (nếu dùng deck) ===== */
+.emp-card {
+  border: 1px solid #f0e7e5;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 8px rgba(18,18,18,0.06);
+  overflow: hidden;
+}
+
+.emp-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: linear-gradient(180deg, #fff8f6, #ffffff);
+  border-bottom: 1px solid #f1e7e5;
+}
+
+.emp-card-title {
+  font-weight: 700;
+  color: #3a2b28;
+}
+
+.emp-card-sub {
+  color: #8a6b64;
+  font-size: 12px;
+}
+
+.emp-close {
+  border: none;
+  background: #ffe6e0;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  color: #a0422f;
+  transition: 0.2s;
+}
+
+.emp-close:hover {
+  background: #ffd4cb;
+  transform: scale(1.03);
+}
+
+/* ===== Accordion trong chi tiết ===== */
+.emp-acc {
+  border-bottom: 1px dashed #f0e7e5;
+}
+.emp-acc:last-child {
+  border-bottom: 0;
+}
+.emp-acc-head {
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  background: #fff;
+  border: none;
+  border-top: 1px solid #faf1ef;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #563a34;
+  font-weight: 600;
+}
+.emp-acc-body {
+  padding: 12px 14px 4px;
+}
+.emp-acc-caret {
+  display: inline-block;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+  font-size: 16px;
+}
+.emp-acc-caret.open {
+  transform: rotate(180deg);
+}
+
+/* ===== Lưới trường chi tiết ===== */
+.emp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 14px;
+}
+@media (max-width: 560px) {
+  .emp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.emp-field .emp-label {
+  color: #8b8b8b;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+.emp-field .emp-value {
+  color: #2b2b2b;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.emp-subtitle {
+  color: #8b8b8b;
+  font-size: 12px;
+  margin: 6px 0 4px;
+}
+.emp-list {
+  margin: 0 0 8px 18px;
+  padding: 0;
+  color: #2b2b2b;
+}
+
+/* ===== Drawer xem chi tiết 1 người ===== */
+.emp-drawer-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+.emp-drawer {
+  width: min(640px, 92vw);
+  background: #fff;
+  height: 100%;
+  box-shadow: -8px 0 24px rgba(0,0,0,0.18);
+  animation: slideIn .18s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+@keyframes slideIn {
+  from { transform: translateX(16px); opacity: 0.96; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+.emp-drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 16px;
+  background: #faf7f6;
+  border-bottom: 1px solid #eee;
+}
+.emp-drawer-title {
+  font-weight: 700;
+  color: #3a2b28;
+  font-size: 18px;
+}
+.emp-drawer-sub {
+  color: #8a6b64;
+  font-size: 12px;
+}
+.emp-sections {
+  padding: 8px 16px 16px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===== Mobile tweaks chung (không đụng tới rule của table) ===== */
+@media (max-width: 720px) {
+  .emp-layout {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .emp-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .emp-search {
+    width: 100%;
+    min-width: 0;
+  }
+  .emp-right {
+    border-radius: 12px;
+    margin: 0 8px 8px;
+  }
+  .emp-deck {
+    max-height: none;
+    grid-template-columns: 1fr;
+  }
+  .emp-card {
+    border-radius: 12px;
+  }
+  .emp-grid {
+    grid-template-columns: 1fr;
+    gap: 8px 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  /* có thể thêm tinh chỉnh chung nếu cần */
+}
+/* Hàng nút + search bên phải tiêu đề */
+.emp-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Giữ khoảng cách hợp lý khi co giãn */
+.emp-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+/* Nút Add/Import màu sắc rõ ràng */
+.emp-btn-add {
+  background: #22c55e;
+  color: #fff;
+  border-color: #22c55e;
+}
+.emp-btn-add:hover {
+  filter: brightness(0.95);
+}
+
+.emp-btn-import {
+  background: #3b82f6;
+  color: #fff;
+  border-color: #3b82f6;
+}
+.emp-btn-import:hover {
+  filter: brightness(0.95);
+}
+
+/* Trên mobile: nút nằm trên, ô tìm kiếm xuống dưới cho dễ bấm */
+@media (max-width: 720px) {
+  .emp-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .emp-actions .emp-search {
+    flex: 1 1 100%;
+  }
+}
+
+

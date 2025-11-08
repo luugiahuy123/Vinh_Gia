@@ -1,0 +1,168 @@
+.emp-wrap { padding:16px; box-sizing:border-box; }
+.emp-header { display:flex; gap:12px; align-items:center; justify-content:space-between; margin-bottom:12px; }
+.emp-header h2 { margin:0; font-size:20px; font-weight:700; color:#2b2b2b; }
+.emp-search { min-width:280px; padding:8px 12px; border:1px solid #e6e6e6; border-radius:10px; outline:none; transition:.2s; }
+.emp-search:focus { border-color:#c06252; box-shadow:0 0 0 4px rgba(192,98,82,.12); }
+
+.emp-btn { padding:6px 10px; border-radius:10px; border:1px solid #e6e6e6; background:#fff; cursor:pointer; font-size:13px; transition:.2s; }
+.emp-btn:hover { background:#fff3f0; box-shadow:0 2px 10px rgba(192,98,82,.15); }
+.emp-empty { text-align:center; color:#999; padding:16px; }
+
+/* grid & field */
+.emp-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px 14px; }
+@media (max-width:560px){ .emp-grid{ grid-template-columns:1fr; } }
+.emp-label { color:#8b8b8b; font-size:12px; margin-bottom:2px; }
+.emp-value { color:#2b2b2b; font-weight:600; word-break:break-word; }
+
+/* accordion */
+.emp-acc { border-bottom:1px dashed #f0e7e5; }
+.emp-acc:last-child { border-bottom:0; }
+.emp-acc-head { width:100%; text-align:left; padding:10px 14px; background:#fff; border:none; border-top:1px solid #faf1ef;
+  cursor:pointer; display:flex; justify-content:space-between; align-items:center; color:#563a34; font-weight:600; }
+.emp-acc-body{ padding:12px 14px 4px; }
+.emp-acc-caret{ display:inline-block; transform:rotate(0deg); transition:transform .2s; font-size:16px; }
+.emp-acc-caret.open{ transform:rotate(180deg); }
+/* ===== Wrapper chung ===== */
+.emp-wrap { padding: 16px; box-sizing: border-box; }
+
+/* ===== Header + Search ===== */
+.emp-header {
+  display: flex; gap: 12px; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.emp-header h2 { margin: 0; font-size: 20px; font-weight: 700; color: #c06252; }
+
+.emp-actions { display: flex; align-items: center; gap: 8px; }
+
+.emp-search {
+  min-width: 280px; padding: 8px 12px; border: 1px solid #e6e6e6; border-radius: 10px;
+  outline: none; transition: 0.2s border, 0.2s box-shadow;
+}
+.emp-search:focus { border-color: #c06252; box-shadow: 0 0 0 4px rgba(192, 98, 82, 0.12); }
+
+@media (max-width: 720px) {
+  .emp-actions { flex-wrap: wrap; }
+  .emp-actions .emp-search { flex: 1 1 100%; }
+}
+
+/* ===== Buttons: pill + icons ===== */
+.btn-pill {
+  --btn-bg: #fff; --btn-bd: #e6e6e6; --btn-fg: #2b2b2b;
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--btn-bd); background: var(--btn-bg); color: var(--btn-fg);
+  padding: 8px 14px; border-radius: 999px; font-weight: 600; font-size: 14px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(18,18,18,0.06);
+  transition: transform .08s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+}
+.btn-pill:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(18,18,18,0.10); }
+.btn-pill:active { transform: translateY(0); box-shadow: 0 2px 10px rgba(18,18,18,0.06); }
+.btn-pill .btn-ic { font-size: 16px; line-height: 1; }
+.btn-pill.is-primary { --btn-bd: #c06252; --btn-fg:#c06252; }
+.btn-pill.is-primary:hover { filter: brightness(0.97); }
+.btn-pill.is-info {  --btn-bd:#c06252; --btn-fg:#c06252; }
+.btn-pill.is-info:hover { filter: brightness(0.97); }
+.btn-pill.is-warning { --btn-bg:#f59e0b; --btn-bd:#f59e0b; --btn-fg:#fff; }
+.btn-pill.is-danger  { --btn-bg:#ef4444; --btn-bd:#ef4444; --btn-fg:#fff; }
+
+/* ===== Table (tối giản – bạn có thể dùng CSS sẵn có) ===== */
+/* .emp-table-wrap { background:#fff; border:1px solid #eee; border-radius:14px; overflow:hidden; } */
+.emp-table { width:100%; border-collapse: collapse; }
+.emp-table th, .emp-table td { padding:10px 12px; border-bottom:1px solid #f1f1f1; }
+.emp-table thead th { background:#faf7f6; text-align:left; font-weight:700; color:#3a2b28; }
+
+/* ===== Row action buttons ===== */
+.action-btn {
+  display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; border-radius:10px; border:1px solid #ececec; background:#fff;
+  cursor:pointer; box-shadow:0 1px 6px rgba(18,18,18,0.05);
+  transition: transform .08s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+}
+.action-btn + .action-btn { margin-left: 6px; }
+.action-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(18,18,18,0.10); }
+.action-btn.view { color:#0ea5e9; border-color:#e6f3fb; background:#f5fbff; }
+.action-btn.edit { color:#f59e0b; border-color:#fff4e5; background:#fff9ef; }
+.action-btn.delete { color:#ef4444; border-color:#ffe8e8; background:#fff5f5; }
+.action-btn:active { transform: translateY(0); }
+.action-btn svg { font-size:16px; }
+
+/* ===== Drawer / Modal (đã có trong EmployeeDrawer.css – giữ lại) ===== */
+/* ===== Hàng trong bảng ===== */
+.emp-table tr.emp-row {
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.emp-table tr.emp-row:hover {
+  background: #f9f9f9;
+}
+
+/* ===== Context menu chuột phải ===== */
+.context-menu {
+  position: absolute;
+  z-index: 2000;
+  background: #ffffffb3; /* mờ nhẹ */
+  backdrop-filter: blur(6px);
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  overflow: hidden;
+  min-width: 180px;
+  animation: fadeIn .12s ease-out;
+}
+
+.fixed-menu {
+  transform: translateY(4px); /* xuất hiện dưới chân chuột */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-2px); }
+  to { opacity: 1; transform: translateY(4px); }
+}
+
+.context-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+/* Hover style */
+.context-item:hover {
+  background: #f3f4f6;
+}
+
+/* Màu riêng cho Sửa / Xoá */
+.context-item.edit {
+  
+  background-color: white ;
+  color: #c06252;
+}
+.context-item.edit:hover {
+  background: #fff7ed;
+}
+
+.context-item.delete {
+ background-color: white ;
+  color: #c06252;
+}
+.context-item.delete:hover {
+  background: #fef2f2;
+}
+
+/* ===== Responsive fix ===== */
+@media (max-width: 720px) {
+  .context-menu {
+    min-width: 150px;
+  }
+  .context-item {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+}
+
+

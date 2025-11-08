@@ -1,0 +1,38 @@
+.modules-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modules-section input {
+  padding: 6px 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.modules-section button {
+  background: #0ea5e9;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.modules-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.modules-section th,
+.modules-section td {
+  padding: 6px 10px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.modules-section th {
+  background: #f1f5f9;
+  text-align: left;
+  color: #334155;
+}

@@ -1,0 +1,22 @@
+.actions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.actions-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.actions-section th,
+.actions-section td {
+  padding: 6px 10px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.actions-section th {
+  background: #f1f5f9;
+  color: #334155;
+  font-weight: 600;
+}
