@@ -5,7 +5,7 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
 
-import Dashboard from "../features/dashboard/components/Dashboard1.jsx";
+import Dashboard from "../features/dashboard/index.jsx";
 import EmployeeManagement from "../features/employees/EmployeeManagement";
 import ContractsPage from "../features/hr/contracts/ContractsPage.jsx";
 import TrainingPage from "../features/hr/training/TrainingPage.jsx";

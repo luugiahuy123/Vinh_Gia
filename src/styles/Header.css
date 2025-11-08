@@ -1,100 +1,135 @@
-/* Header.css */
+:root {
+  --brand: #0e6481;
+  --sidebar-w: 260px;
+  --sidebar-mini: 80px;
+  --header-h: 60px;
+}
 
+/* ===== HEADER KHUNG ===== */
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  background-color: #fff;
-  color: white;
-box-shadow: 1px 2px 3px #c1c1c1;
-  height: 60px;
   position: fixed;
-  border: 0.1px solid #fff ;
   top: 0;
-  left: 0;
+  left: var(--sidebar-mini);
   right: 0;
-  z-index: 1000;
-  transition: left 0.3s ease, width 0.3s ease;
+  height: var(--header-h);
+  background-color: #fff;
+  color: #0e6481;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.05);
+  z-index: 900;
+  transition: left 0.25s ease, width 0.25s ease;
 }
 
 /* Khi sidebar mở */
 .sidebar-open .header {
-  left: 300px;
-  width: calc(100% - 290px);
+  left: var(--sidebar-w);
+  width: calc(100% - var(--sidebar-w));
 }
 
-/* Khi sidebar đóng */
+/* Khi sidebar đóng (mini) */
 .sidebar-closed .header {
-  left: 0;
-  width: 100%;
+  left: var(--sidebar-mini);
+  width: calc(100% - var(--sidebar-mini));
 }
 
+/* ===== HEADER BÊN TRONG ===== */
 .header-left {
   display: flex;
   align-items: center;
   flex: 1;
+  gap: 10px;
 }
 
+/* Logo hoặc tên công ty */
 .company-name {
-  font-weight: bold;
+  font-weight: 600;
   margin-left: 10px;
   font-size: 18px;
-  color: #0e6481;
+  color: var(--brand);
 }
 
+/* ===== NÚT TOGGLE SIDEBAR ===== */
 .toggle-btn {
-  background: #0e6481(196, 10, 10, 0.1);
+  background: transparent;
   border: none;
-  color: #0e6481;
-  font-size: 1.2rem;
+  color: var(--brand);
+  font-size: 1.25rem;
   cursor: pointer;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: background 0.3s;
-  margin-right: 15px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: background 0.25s ease, transform 0.15s ease;
 }
 
 .toggle-btn:hover {
-  background: #0e6481(231, 62, 11, 0.2);
-  border-radius: 4px;
+  background: rgba(14, 100, 129, 0.08);
+  transform: scale(1.1);
 }
 
-/* User Menu */
+.toggle-btn:active {
+  transform: scale(1);
+}
+
+/* ===== USER MENU (dropdown / chuông / avatar) ===== */
 .user-menu {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
   margin-left: auto;
 }
 
+/* ===== NÚT LOGIN ===== */
 .login-btn {
-  background: #0e6481(255, 255, 255, 0.2);
-  color: white;
-  border: 1px solid #0e6481(255, 255, 255, 0.3);
+  background: var(--brand);
+  color: #fff;
+  border: none;
   padding: 8px 16px;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.3s ease;
+  transition: background 0.25s ease;
 }
 
 .login-btn:hover {
-  background: #0e6481(255, 255, 255, 0.3);
+  background: #0c5770;
 }
 
-/* Responsive for Header */
+/* ===== NÚT CHUÔNG THÔNG BÁO ===== */
+.notif-bell-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: var(--brand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: color 0.25s ease, transform 0.15s ease, background 0.25s ease;
+}
+
+.notif-bell-btn:hover {
+  background: rgba(14, 100, 129, 0.08);
+  transform: scale(1.1);
+}
+
+.notif-bell-btn:active {
+  transform: scale(1);
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .header {
     padding: 0 15px;
+    left: 0 !important;
+    width: 100% !important;
   }
-  
-  .sidebar-open .header,
-  .sidebar-closed .header {
-    left: 0;
-    width: 100%;
-  }
-  
+
   .company-name {
     font-size: 1.1rem;
   }
@@ -104,75 +139,26 @@ box-shadow: 1px 2px 3px #c1c1c1;
   .header {
     padding: 0 10px;
   }
-  
+
   .company-name {
     font-size: 1rem;
   }
-  
+
   .toggle-btn {
     padding: 6px 8px;
-    font-size: 1rem;
-    margin-right: 10px;
+    font-size: 1.1rem;
+    margin-right: 6px;
   }
-  
+
   .login-btn {
     padding: 6px 12px;
     font-size: 13px;
   }
-  
-  /* Trên mobile rất nhỏ, ẩn tên công ty */
-  @media (max-width: 400px) {
-    .company-name {
-      display: none;
-    }
+}
+
+/* Ẩn tên công ty nếu màn hình rất nhỏ */
+@media (max-width: 400px) {
+  .company-name {
+    display: none;
   }
 }
-/* === Nút chuông thông báo (NotificationsBell) === */
-.notif-bell-btn {
-  border: none;
-  background: transparent;
-  color: #0e6481; /* trắng */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: color 0.25s ease, transform 0.15s ease;
-}
-
-.notif-bell-btn:hover {
-  color: #fff5f3;        /* trắng sáng hơn khi hover */
-  transform: scale(1.08);
-}
-
-.notif-bell-btn:active {
-  transform: scale(0.92);
-}
-
-.notif-bell-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #0e6481(255, 255, 255, 0.4);
-}
-/* Nút chuông thông báo */
-.notif-bell-btn {
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  color: #0e6481; /* Chuông trắng mặc định */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.25s ease, transform 0.15s ease;
-}
-
-.notif-bell-btn:hover {
-  color: #0e6481; /* Màu cam thương hiệu */
-  transform: scale(1.1);
-}
-
-.notif-bell-btn:active {
-  transform: scale(1);
-}
-

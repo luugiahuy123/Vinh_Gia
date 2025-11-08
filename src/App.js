@@ -4,11 +4,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import './styles/App.css';
 
 import Layout from './layout/Layout';
-import Dashboard from './features/dashboard/Dashboard';
-import EmployeeManagement from './features/employees/EmployeeManagement';
-import Attendance from './components/pages/Attendance';
-import Salary from './components/pages/Salary';
-import KPI from './components/pages/KPI';
 import Login from './features/auth/pages/Login';
 import Register from './features/auth/pages/Register';
 
