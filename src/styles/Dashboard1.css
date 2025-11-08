@@ -64,7 +64,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin: 5px 10px 10px;
+  margin: 10px 16px 0px;
 }
 .month-picker .month-text { font-size: 16px; font-weight: 600; color: #0e6481; cursor: pointer; transition: color .2s; }
 .month-picker .month-text:hover { color: #094d61; text-decoration: underline; }
@@ -139,7 +139,7 @@
 
 /* Buttons */
 .btn { font-size:12px; padding:6px 10px; border-radius:10px; cursor:pointer; border:1px solid var(--line); background:#fff; color: var(--ink); transition: filter .15s ease, background .15s ease; }
-.btn.link { border-color:#cfe7ff; color:#2563eb; background:#f5f9ff; }
+.btn.link { border-color:#094d61; color:#094d61; background:#f5f9ff; }
 .btn.link:hover { filter: brightness(.97); }
 .btn.ghost { background:#fff; border-color:#e5e7eb; color:#374151; }
 .btn.ghost.sm { padding:4px 8px; font-size:12px; }

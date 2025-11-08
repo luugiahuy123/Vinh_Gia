@@ -1,0 +1,116 @@
+/* =========================================
+   SIZECARD.CSS — chỉ quản lý kích thước & lưới
+   - 12 cột, mobile-first
+   - card-1..12: span cột mặc định
+   - sm-card-*, md-card-*, lg-card-* override theo breakpoint
+   - row-1..6: span hàng (nếu cần)
+   - Đồng thời chuyển số cột lưới theo viewport (max-width)
+   ========================================= */
+
+/* Lưới mặc định: 12 cột */
+.grid-hr {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+/* ---- Column span (default) ---- */
+.card-1 { grid-column: span 1; }
+.card-2 { grid-column: span 2; }
+.card-3 { grid-column: span 3; }
+.card-4 { grid-column: span 4; }
+.card-5 { grid-column: span 5; }
+.card-6 { grid-column: span 6; }
+.card-7 { grid-column: span 7; }
+.card-8 { grid-column: span 8; }
+.card-9 { grid-column: span 9; }
+.card-10 { grid-column: span 10; }
+.card-11 { grid-column: span 11; }
+.card-12 { grid-column: span 12; }
+
+/* ---- Row span (optional) ---- */
+.row-1 { grid-row: span 1; }
+.row-2 { grid-row: span 2; }
+.row-3 { grid-row: span 3; }
+.row-4 { grid-row: span 4; }
+.row-5 { grid-row: span 5; }
+.row-6 { grid-row: span 6; }
+
+/* ---- Breakpoints (mobile-first) ---- */
+/* sm ≥ 640px */
+@media (min-width: 640px) {
+  .sm-card-1 { grid-column: span 1; }
+  .sm-card-2 { grid-column: span 2; }
+  .sm-card-3 { grid-column: span 3; }
+  .sm-card-4 { grid-column: span 4; }
+  .sm-card-5 { grid-column: span 5; }
+  .sm-card-6 { grid-column: span 6; }
+  .sm-card-7 { grid-column: span 7; }
+  .sm-card-8 { grid-column: span 8; }
+  .sm-card-9 { grid-column: span 9; }
+  .sm-card-10 { grid-column: span 10; }
+  .sm-card-11 { grid-column: span 11; }
+  .sm-card-12 { grid-column: span 12; }
+
+  .sm-row-1 { grid-row: span 1; }
+  .sm-row-2 { grid-row: span 2; }
+  .sm-row-3 { grid-row: span 3; }
+  .sm-row-4 { grid-row: span 4; }
+  .sm-row-5 { grid-row: span 5; }
+  .sm-row-6 { grid-row: span 6; }
+}
+
+/* md ≥ 900px */
+@media (min-width: 900px) {
+  .md-card-1 { grid-column: span 1; }
+  .md-card-2 { grid-column: span 2; }
+  .md-card-3 { grid-column: span 3; }
+  .md-card-4 { grid-column: span 4; }
+  .md-card-5 { grid-column: span 5; }
+  .md-card-6 { grid-column: span 6; }
+  .md-card-7 { grid-column: span 7; }
+  .md-card-8 { grid-column: span 8; }
+  .md-card-9 { grid-column: span 9; }
+  .md-card-10 { grid-column: span 10; }
+  .md-card-11 { grid-column: span 11; }
+  .md-card-12 { grid-column: span 12; }
+
+  .md-row-1 { grid-row: span 1; }
+  .md-row-2 { grid-row: span 2; }
+  .md-row-3 { grid-row: span 3; }
+  .md-row-4 { grid-row: span 4; }
+  .md-row-5 { grid-row: span 5; }
+  .md-row-6 { grid-row: span 6; }
+}
+
+/* lg ≥ 1200px */
+@media (min-width: 1200px) {
+  .lg-card-1 { grid-column: span 1; }
+  .lg-card-2 { grid-column: span 2; }
+  .lg-card-3 { grid-column: span 3; }
+  .lg-card-4 { grid-column: span 4; }
+  .lg-card-5 { grid-column: span 5; }
+  .lg-card-6 { grid-column: span 6; }
+  .lg-card-7 { grid-column: span 7; }
+  .lg-card-8 { grid-column: span 8; }
+  .lg-card-9 { grid-column: span 9; }
+  .lg-card-10 { grid-column: span 10; }
+  .lg-card-11 { grid-column: span 11; }
+  .lg-card-12 { grid-column: span 12; }
+
+  .lg-row-1 { grid-row: span 1; }
+  .lg-row-2 { grid-row: span 2; }
+  .lg-row-3 { grid-row: span 3; }
+  .lg-row-4 { grid-row: span 4; }
+  .lg-row-5 { grid-row: span 5; }
+  .lg-row-6 { grid-row: span 6; }
+}
+
+/* ==== Thu gọn số cột của lưới theo viewport (move từ Dashboard.css sang đây) ==== */
+@media (max-width: 1200px) {
+  .grid-hr { grid-template-columns: repeat(6, 1fr); }
+}
+@media (max-width: 900px) {
+  .grid-hr { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 640px) {
+  .grid-hr { grid-template-columns: repeat(2, 1fr); }
+}

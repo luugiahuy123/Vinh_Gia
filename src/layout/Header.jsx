@@ -2,7 +2,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserDropdown from '../features/auth/components/UserDropdown';
-import SearchBar from '../components/pages/SearchBar';
 import { FaBell } from 'react-icons/fa';
 import '../styles/Header.css';
 
@@ -44,7 +43,7 @@ const Header = ({
       <div className="header-left">
         <button className="toggle-btn" onClick={toggleSidebar}>☰</button>
         
-        {isLoggedIn && <SearchBar onSearch={handleSearch} />}
+      
       </div>
 
       <div className="user-menu" style={{ display: 'flex', alignItems: 'center', gap: 10 }}>

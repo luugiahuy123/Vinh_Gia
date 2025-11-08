@@ -55,6 +55,7 @@ const expiringContracts = [
   { name: "Trần Thị B", dept: "Kinh doanh", due: "28/11/2025", daysLeft: 23 },
   { name: "Lê Văn C", dept: "Văn phòng", due: "05/12/2025", daysLeft: 30 },
   { name: "Phạm Thị D", dept: "Sản xuất", due: "08/12/2025", daysLeft: 33 },
+  { name: "Phạm Văn E", dept: "Sản xuất", due: "30/12/2025", daysLeft: 45 },
 ];
 
 const ageBands = [
@@ -96,12 +97,16 @@ export default function Dashboard() {
           label="Nhân sự mới (Tháng)"
           value={6}
           trend={[2, 3, 4, 5, 7, 6, 5, 8, 9, 6, 7, 6]}
+          accent="chart"
+
         />
         <KpiCard
           icon="leave"
           label="Nhân sự nghỉ việc (Tháng)"
           value={2}
           trend={[1, 1, 2, 0, 1, 2, 1, 2, 3, 1, 1, 2]}
+          accent="warn"
+
         />
         {/* Hàng 3: 2 ô lớn */}
         <div className="card bigCard">
