@@ -2,6 +2,11 @@ import React, { useMemo, useState, useEffect, useRef } from "react";
 import "../../styles/employee/EmployeeCommon.css";
 import "../../styles/employee/EmployeeTable.css";
 import "../../styles/employee/EmployeeDrawer.css";
+import "../../styles/atoms/title.css"
+/* NEW: Vinh Gia atoms */
+import "../../styles/atoms/inputs.css";
+import "../../styles/atoms/buttons.css";
+
 import EmployeeTable from "./EmployeeTable";
 import EmployeeDetailModal from "./EmployeeDetailModal";
 import Swal from "sweetalert2";
@@ -35,17 +40,35 @@ export default function EmployeeManagement() {
       },
       thong_tin_luong: {
         muc_luong_co_ban: 15000000,
-        tai_khoan_ngan_hang: { so_tai_khoan: "0123456789", ngan_hang: "Vietcombank", chi_nhanh: "Q1 TPHCM" },
+        tai_khoan_ngan_hang: {
+          so_tai_khoan: "0123456789",
+          ngan_hang: "Vietcombank",
+          chi_nhanh: "Q1 TPHCM",
+        },
         ma_so_bhxh: "BHXH012345",
-        thue_tncn: { ma_so_thue: "MST123456789", nguoi_phu_thuoc: [{ ho_ten: "Nguyễn Thị B", quan_he: "Con", nam_sinh: 2020 }] },
+        thue_tncn: {
+          ma_so_thue: "MST123456789",
+          nguoi_phu_thuoc: [
+            { ho_ten: "Nguyễn Thị B", quan_he: "Con", nam_sinh: 2020 },
+          ],
+        },
       },
-      trinh_do_kinh_nghiem: { trinh_do_hoc_van: "Đại học", chuyen_nganh: "Kế toán", truong_dao_tao: "ĐH Kinh tế TPHCM" },
+      trinh_do_kinh_nghiem: {
+        trinh_do_hoc_van: "Đại học",
+        chuyen_nganh: "Kế toán",
+        truong_dao_tao: "ĐH Kinh tế TPHCM",
+      },
       danh_gia_phat_trien: {
         dinh_huong: "Phát triển lên vị trí trưởng nhóm kế toán",
         thanh_tich_khen_thuong_ky_luat: ["Nhân viên xuất sắc 2023"],
-        lich_su_tang_luong_thuong_phat: [{ ngay: "2023-01-01", noi_dung: "Tăng lương lên 15tr" }],
+        lich_su_tang_luong_thuong_phat: [
+          { ngay: "2023-01-01", noi_dung: "Tăng lương lên 15tr" },
+        ],
       },
-      ho_so_tai_lieu: { hop_dong_lao_dong: "HDLD/2022/NV001", so_ho_so_ung_tuyen: "HS001" },
+      ho_so_tai_lieu: {
+        hop_dong_lao_dong: "HDLD/2022/NV001",
+        so_ho_so_ung_tuyen: "HS001",
+      },
       thong_tin_he_thong: { email_cong_ty: "nguyenvana@company.com" },
     },
     {
@@ -73,13 +96,28 @@ export default function EmployeeManagement() {
       },
       thong_tin_luong: {
         muc_luong_co_ban: 12000000,
-        tai_khoan_ngan_hang: { so_tai_khoan: "111122223333", ngan_hang: "TPBank", chi_nhanh: "Ba Đình" },
+        tai_khoan_ngan_hang: {
+          so_tai_khoan: "111122223333",
+          ngan_hang: "TPBank",
+          chi_nhanh: "Ba Đình",
+        },
         ma_so_bhxh: "BHXH111222",
         thue_tncn: { ma_so_thue: "MST111222333", nguoi_phu_thuoc: [] },
       },
-      trinh_do_kinh_nghiem: { trinh_do_hoc_van: "Đại học", chuyen_nganh: "Quản trị nhân lực", truong_dao_tao: "ĐH Thương Mại" },
-      danh_gia_phat_trien: { dinh_huong: "HRBP", thanh_tich_khen_thuong_ky_luat: [], lich_su_tang_luong_thuong_phat: [] },
-      ho_so_tai_lieu: { hop_dong_lao_dong: "HDLD/2023/NV002", so_ho_so_ung_tuyen: "HS002" },
+      trinh_do_kinh_nghiem: {
+        trinh_do_hoc_van: "Đại học",
+        chuyen_nganh: "Quản trị nhân lực",
+        truong_dao_tao: "ĐH Thương Mại",
+      },
+      danh_gia_phat_trien: {
+        dinh_huong: "HRBP",
+        thanh_tich_khen_thuong_ky_luat: [],
+        lich_su_tang_luong_thuong_phat: [],
+      },
+      ho_so_tai_lieu: {
+        hop_dong_lao_dong: "HDLD/2023/NV002",
+        so_ho_so_ung_tuyen: "HS002",
+      },
       thong_tin_he_thong: { email_cong_ty: "tranthib@company.com" },
     },
     {
@@ -107,13 +145,33 @@ export default function EmployeeManagement() {
       },
       thong_tin_luong: {
         muc_luong_co_ban: 10000000,
-        tai_khoan_ngan_hang: { so_tai_khoan: "222233334444", ngan_hang: "VietinBank", chi_nhanh: "ĐN" },
+        tai_khoan_ngan_hang: {
+          so_tai_khoan: "222233334444",
+          ngan_hang: "VietinBank",
+          chi_nhanh: "ĐN",
+        },
         ma_so_bhxh: "BHXH222333",
-        thue_tncn: { ma_so_thue: "MST222333444", nguoi_phu_thuoc: [{ ho_ten: "Lê Thị D", quan_he: "Vợ", nam_sinh: 1990 }] },
+        thue_tncn: {
+          ma_so_thue: "MST222333444",
+          nguoi_phu_thuoc: [
+            { ho_ten: "Lê Thị D", quan_he: "Vợ", nam_sinh: 1990 },
+          ],
+        },
       },
-      trinh_do_kinh_nghiem: { trinh_do_hoc_van: "Cao đẳng", chuyen_nganh: "Cơ khí", truong_dao_tao: "CĐ Công nghệ" },
-      danh_gia_phat_trien: { dinh_huong: "Quản đốc", thanh_tich_khen_thuong_ky_luat: ["Sáng kiến cải tiến 2022"], lich_su_tang_luong_thuong_phat: [] },
-      ho_so_tai_lieu: { hop_dong_lao_dong: "HDLD/2018/NV003", so_ho_so_ung_tuyen: "HS003" },
+      trinh_do_kinh_nghiem: {
+        trinh_do_hoc_van: "Cao đẳng",
+        chuyen_nganh: "Cơ khí",
+        truong_dao_tao: "CĐ Công nghệ",
+      },
+      danh_gia_phat_trien: {
+        dinh_huong: "Quản đốc",
+        thanh_tich_khen_thuong_ky_luat: ["Sáng kiến cải tiến 2022"],
+        lich_su_tang_luong_thuong_phat: [],
+      },
+      ho_so_tai_lieu: {
+        hop_dong_lao_dong: "HDLD/2018/NV003",
+        so_ho_so_ung_tuyen: "HS003",
+      },
       thong_tin_he_thong: { email_cong_ty: "levanc@company.com" },
     },
   ];
@@ -142,7 +200,9 @@ export default function EmployeeManagement() {
   const PAGE_SIZE = 10;
   const [page, setPage] = useState(1);
 
-  useEffect(() => { setPage(1); }, [q]);
+  useEffect(() => {
+    setPage(1);
+  }, [q]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
 
@@ -180,9 +240,18 @@ export default function EmployeeManagement() {
     }).then((r) => {
       if (r.isConfirmed) {
         setEmployees((prev) =>
-          prev.filter((x) => x.thong_tin_cong_viec.ma_nhan_vien !== row.thong_tin_cong_viec.ma_nhan_vien)
+          prev.filter(
+            (x) =>
+              x.thong_tin_cong_viec.ma_nhan_vien !==
+              row.thong_tin_cong_viec.ma_nhan_vien
+          )
         );
-        Swal.fire({ icon: "success", title: "Đã xoá", timer: 1400, showConfirmButton: false });
+        Swal.fire({
+          icon: "success",
+          title: "Đã xoá",
+          timer: 1400,
+          showConfirmButton: false,
+        });
       }
     });
   };
@@ -210,18 +279,25 @@ export default function EmployeeManagement() {
   return (
     <div className="emp-wrap">
       <div className="emp-header">
-        <h2>Hồ sơ nhân sự</h2>
+        <h2 className="titlePage">Hồ sơ nhân sự</h2>
 
         <div className="emp-actions">
-          <button className="btn-pill is-primary" onClick={handleAdd}>
-            <FiPlus className="btn-ic" /> Thêm
+          <button
+            className="vg-btn vg-btn--primary vg-btn--pill"
+            onClick={handleAdd}
+          >
+            <FiPlus className="vg-btn-ic" /> Thêm
           </button>
-          <button className="btn-pill is-info" onClick={triggerImport}>
-            <FiUpload className="btn-ic" /> Import
+
+          <button
+            className="vg-btn vg-btn--outline vg-btn--pill"
+            onClick={triggerImport}
+          >
+            <FiUpload className="vg-btn-ic" /> Import
           </button>
 
           <input
-            className="emp-search"
+            className="vg-input vg-input--lg"
             placeholder="Tìm: Mã NV / Họ tên / Phòng ban / Chức danh"
             value={q}
             onChange={(e) => setQ(e.target.value)}
@@ -275,13 +351,33 @@ function Pager({ page, totalPages, onChange }) {
   for (let i = start; i <= end; i++) pages.push(i);
 
   return (
-    <div className="emp-pager" style={{ display: "flex", gap: 6, alignItems: "center", marginTop: 12 }}>
-      <button className="emp-page-btn" onClick={() => go(1)} disabled={page === 1}>«</button>
-      <button className="emp-page-btn" onClick={() => go(page - 1)} disabled={page === 1}>‹</button>
+    <div
+      className="emp-pager"
+      style={{ display: "flex", gap: 6, alignItems: "center", marginTop: 12 }}
+    >
+      <button
+        className="vg-btn vg-btn--ghost vg-btn--sm"
+        onClick={() => go(1)}
+        disabled={page === 1}
+      >
+        «
+      </button>
+      <button
+        className="vg-btn vg-btn--ghost vg-btn--sm"
+        onClick={() => go(page - 1)}
+        disabled={page === 1}
+      >
+        ‹
+      </button>
 
       {start > 1 && (
         <>
-          <button className="emp-page-btn" onClick={() => go(1)}>1</button>
+          <button
+            className="vg-btn vg-btn--ghost vg-btn--sm"
+            onClick={() => go(1)}
+          >
+            1
+          </button>
           {start > 2 && <span className="emp-ellipsis">…</span>}
         </>
       )}
@@ -289,7 +385,9 @@ function Pager({ page, totalPages, onChange }) {
       {pages.map((p) => (
         <button
           key={p}
-          className={`emp-page-btn ${p === page ? "active" : ""}`}
+          className={`vg-btn ${
+            p === page ? "vg-btn--primary" : "vg-btn--ghost"
+          } vg-btn--sm`}
           onClick={() => go(p)}
         >
           {p}
@@ -299,14 +397,31 @@ function Pager({ page, totalPages, onChange }) {
       {end < totalPages && (
         <>
           {end < totalPages - 1 && <span className="emp-ellipsis">…</span>}
-          <button className="emp-page-btn" onClick={() => go(totalPages)}>{totalPages}</button>
+          <button
+            className="vg-btn vg-btn--ghost vg-btn--sm"
+            onClick={() => go(totalPages)}
+          >
+            {totalPages}
+          </button>
         </>
       )}
 
-      <button className="emp-page-btn" onClick={() => go(page + 1)} disabled={page === totalPages}>›</button>
-      <button className="emp-page-btn" onClick={() => go(totalPages)} disabled={page === totalPages}>»</button>
+      <button
+        className="vg-btn vg-btn--ghost vg-btn--sm"
+        onClick={() => go(page + 1)}
+        disabled={page === totalPages}
+      >
+        ›
+      </button>
+      <button
+        className="vg-btn vg-btn--ghost vg-btn--sm"
+        onClick={() => go(totalPages)}
+        disabled={page === totalPages}
+      >
+        »
+      </button>
 
-      <span style={{ marginLeft: 8, opacity: .7 }}>
+      <span style={{ marginLeft: 8, opacity: 0.7 }}>
         Trang {page}/{totalPages}
       </span>
     </div>

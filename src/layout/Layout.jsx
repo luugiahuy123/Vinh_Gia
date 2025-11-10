@@ -6,8 +6,7 @@ import Sidebar from "./Sidebar";
 import Footer from "./Footer";
 
 import Dashboard from "../features/dashboard/index.jsx";
- import SelfHome from "../features/selfService/components/SelfHome.jsx";
- import EmployeeManagement from "../features/employees/EmployeeManagement";
+import EmployeeManagement from "../features/employees/EmployeeManagement";
 import ContractsPage from "../features/hr/contracts/ContractsPage.jsx";
 import TrainingPage from "../features/hr/training/TrainingPage.jsx";
 import TransfersPage from "../features/hr/transfers/TransfersPage";
@@ -85,8 +84,8 @@ const Layout = ({ onLogout, isLoggedIn }) => {
 
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/self-service" element={<SelfHome />} />
             <Route path="/employee-profiles" element={<EmployeeManagement />} />
+
             {/* HR */}
             <Route path="/hr/contracts" element={<ContractsPage />} />
             <Route path="/hr/transfers" element={<TransfersPage />} />
