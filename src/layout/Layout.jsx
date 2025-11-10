@@ -24,6 +24,9 @@ import "../styles/layout/Layout.css";
 import ReactModal from "react-modal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import MonthPicker from "../features/dashboard/components/MonthPicker"; // ⚠️ thêm dòng này
+import { useLocation } from "react-router-dom"; // ⚠️ thêm dòng này
+
 
 ReactModal.setAppElement("#root");
 
@@ -39,9 +42,22 @@ const Layout = ({ onLogout, isLoggedIn }) => {
   const [profileOpen, setProfileOpen] = useState(false);
   const [profileTick, setProfileTick] = useState(0);
 
+  
+
   const toggleSidebar = () => setSidebarOpen((v) => !v);
   const handleProfileUpdated = () => setProfileTick((t) => t + 1);
 
+  // ⚠️ Thêm state cho MonthPicker
+  const [monthValue, setMonthValue] = useState(() => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+  });
+
+  // ⚠️ Lấy đường dẫn hiện tại để xác định đang ở Dashboard
+  const loc = useLocation();
+  const isDashboard = loc.pathname === "/dashboard";
+
+  
   return (
     <div className={`layout ${sidebarOpen ? "sidebar-open" : "sidebar-closed"}`}>
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
@@ -59,8 +75,10 @@ const Layout = ({ onLogout, isLoggedIn }) => {
       <div className="main-container">
         <div className="main-content">
           {/* Breadcrumbs toàn app */}
-          <BreadcrumbsBar />
-
+          <div className="page-head">
+  <BreadcrumbsBar />
+  {isDashboard && <MonthPicker value={monthValue} onChange={setMonthValue} />}
+</div>
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/employee-profiles" element={<EmployeeManagement />} />

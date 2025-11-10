@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import ReactModal from "react-modal";
 import { toast } from "react-toastify";
-import "../../../styles/Modal.css";
+import "../../../styles/auth/Modal.css";
 import {
   getMyProfile,
   updateMyProfile,

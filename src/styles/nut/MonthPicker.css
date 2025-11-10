@@ -64,3 +64,37 @@
     width: 100%;
   }
 }
+/* =============================
+   PAGE HEAD: Breadcrumbs + MonthPicker bên phải
+   ============================= */
+.page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Breadcrumbs trái, MonthPicker phải */
+  gap: 12px;
+}
+
+.page-head .app-breadcrumbs {
+  flex: 1; /* Breadcrumbs chiếm phần còn lại bên trái */
+}
+
+.page-head .month-picker {
+  justify-content: flex-end;
+}
+/* =============================
+   PAGE HEAD: Breadcrumbs + MonthPicker bên phải
+   ============================= */
+.page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Breadcrumbs trái, MonthPicker phải */
+  gap: 12px;
+}
+
+.page-head .app-breadcrumbs {
+  flex: 1; /* Breadcrumbs chiếm phần còn lại bên trái */
+}
+
+.page-head .month-picker {
+  justify-content: flex-end;
+}

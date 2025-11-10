@@ -63,7 +63,6 @@ export default function Dashboard() {
   return (
     <div>
       {/* Hàng 1: chọn tháng */}
-      <MonthPicker value={monthValue} onChange={setMonthValue} />
 
       <div className="hrdash grid-hr">
         {/* Hàng 2: KPI (4 thẻ × 3 cột = 12 cột ở desktop) */}

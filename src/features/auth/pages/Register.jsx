@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { registerApi } from "../auth.api.jsx";
 import logo from "../../../assets/brand/logo.jpeg";
-import "../../../styles/Login.css";
+import "../../../styles/auth/Login.css";
 
 export default function Register() {
   const [username, setUsername]               = useState("");
