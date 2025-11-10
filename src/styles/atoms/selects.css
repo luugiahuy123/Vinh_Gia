@@ -1,0 +1,210 @@
+:root {
+  --brand: #0e6481;
+  /* hoặc #c06252 nếu dùng cam */
+  --brand-600: #094d61;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --bg: #fff;
+
+  --h: 36px;
+  /* cao theo chuẩn control */
+  --r: 8px;
+  /* bo góc */
+  --shadow: 0 12px 28px rgba(0, 0, 0, .12);
+  --ring: 0 0 0 3px rgba(14, 100, 129, .15);
+
+  --menu-z: 1050;
+  /* gần giống Bootstrap (>= 1000) */
+}
+
+/* =========== WRAP =========== */
+.ui-select-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+/* =========== BUTTON =========== */
+.ui-select-btn {
+  height: var(--h);
+  min-width: 120px;
+  /* đủ rộng mặc định */
+  padding: 0 34px 0 12px;
+  /* chừa chỗ cho arrow */
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14px;
+  /* 14/36 gần với AntD */
+  line-height: var(--h);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.ui-select-btn:hover {
+  border-color: #cfd5dc;
+  background: #fafafa;
+}
+
+.ui-select-btn:focus-visible {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: var(--ring);
+}
+
+.ui-select-btn[aria-disabled="true"] {
+  color: #9ca3af;
+  background: #f9fafb;
+  cursor: not-allowed;
+}
+
+/* sizes */
+.ui-select-wrap.sm .ui-select-btn {
+  height: 32px;
+  font-size: 13px;
+  padding: 0 30px 0 10px;
+}
+
+.ui-select-wrap.lg .ui-select-btn {
+  height: 40px;
+  font-size: 15px;
+}
+
+/* arrow */
+.ui-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  color: var(--muted);
+  transform: translateY(-55%) rotate(45deg);
+  pointer-events: none;
+  transition: transform .18s ease, color .18s ease, opacity .18s ease;
+  opacity: .9;
+}
+
+.ui-select-wrap.open .ui-arrow {
+  transform: translateY(-45%) rotate(-135deg);
+  color: var(--brand);
+}
+
+/* =========== MENU =========== */
+.ui-select-menu {
+  position: absolute;
+  z-index: var(--menu-z);
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 100%;
+  /* ít nhất bằng nút */
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  padding: 6px;
+  max-height: 280px;
+  overflow-y: auto;
+  animation: uiSelIn .12s ease-out;
+}
+
+@keyframes uiSelIn {
+  from {
+    transform: translateY(-3px);
+    opacity: 0
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1
+  }
+}
+
+/* dropup modifier (nếu thiếu chỗ phía dưới, thêm class .dropup) */
+.ui-select-wrap.dropup .ui-select-menu {
+  top: auto;
+  bottom: calc(100% + 6px);
+  animation: uiSelInUp .12s ease-out;
+}
+
+@keyframes uiSelInUp {
+  from {
+    transform: translateY(3px);
+    opacity: 0
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1
+  }
+}
+
+/* scrollbar đồng bộ */
+.ui-select-menu {
+  scrollbar-gutter: stable both-edges;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(14, 100, 129, .55) #f3f4f6;
+}
+
+.ui-select-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ui-select-menu::-webkit-scrollbar-track {
+  background: #f3f4f6;
+  border-radius: 8px;
+}
+
+.ui-select-menu::-webkit-scrollbar-thumb {
+  background: rgba(14, 100, 129, .35);
+  border-radius: 8px;
+}
+
+.ui-select-menu:hover::-webkit-scrollbar-thumb {
+  background: rgba(14, 100, 129, .55);
+}
+
+/* =========== OPTION =========== */
+.ui-option {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink);
+  padding: 8px 10px;
+  /* giống density của AntD/Bootstrap */
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background .12s ease, color .12s ease;
+}
+
+.ui-option:hover {
+  background: rgba(14, 100, 129, .08);
+}
+
+.ui-option[aria-selected="true"] {
+  background: rgba(14, 100, 129, .15);
+  color: #0e6481;
+  font-weight: 600;
+}
+
+.ui-option[aria-disabled="true"] {
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* full width variant */
+.ui-select-wrap.full,
+.ui-select-wrap.full .ui-select-btn {
+  width: 100%;
+}
