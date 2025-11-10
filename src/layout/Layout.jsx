@@ -27,7 +27,6 @@ import "react-toastify/dist/ReactToastify.css";
 import MonthPicker from "../features/dashboard/components/MonthPicker"; // ⚠️ thêm dòng này
 import { useLocation } from "react-router-dom"; // ⚠️ thêm dòng này
 
-
 ReactModal.setAppElement("#root");
 
 const Placeholder = ({ title }) => (
@@ -42,8 +41,6 @@ const Layout = ({ onLogout, isLoggedIn }) => {
   const [profileOpen, setProfileOpen] = useState(false);
   const [profileTick, setProfileTick] = useState(0);
 
-  
-
   const toggleSidebar = () => setSidebarOpen((v) => !v);
   const handleProfileUpdated = () => setProfileTick((t) => t + 1);
 
@@ -57,9 +54,10 @@ const Layout = ({ onLogout, isLoggedIn }) => {
   const loc = useLocation();
   const isDashboard = loc.pathname === "/dashboard";
 
-  
   return (
-    <div className={`layout ${sidebarOpen ? "sidebar-open" : "sidebar-closed"}`}>
+    <div
+      className={`layout ${sidebarOpen ? "sidebar-open" : "sidebar-closed"}`}
+    >
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
 
       <Header
@@ -76,9 +74,14 @@ const Layout = ({ onLogout, isLoggedIn }) => {
         <div className="main-content">
           {/* Breadcrumbs toàn app */}
           <div className="page-head">
-  <BreadcrumbsBar />
-  {isDashboard && <MonthPicker value={monthValue} onChange={setMonthValue} />}
-</div>
+            <BreadcrumbsBar />
+            {isDashboard && (
+              <div className="page-tools">
+                <MonthPicker value={monthValue} onChange={setMonthValue} />
+              </div>
+            )}
+          </div>
+
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/employee-profiles" element={<EmployeeManagement />} />
@@ -94,10 +97,19 @@ const Layout = ({ onLogout, isLoggedIn }) => {
             <Route path="/hr/probation" element={<ProbationPage />} />
 
             {/* Khác */}
-            <Route path="/settings" element={<Placeholder title="Cài đặt tài khoản" />} />
-            <Route path="/notifications" element={<Placeholder title="Thông báo" />} />
+            <Route
+              path="/settings"
+              element={<Placeholder title="Cài đặt tài khoản" />}
+            />
+            <Route
+              path="/notifications"
+              element={<Placeholder title="Thông báo" />}
+            />
             <Route path="/security" element={<SecurityPage />} />
-            <Route path="/help" element={<Placeholder title="Trợ giúp & Hỗ trợ" />} />
+            <Route
+              path="/help"
+              element={<Placeholder title="Trợ giúp & Hỗ trợ" />}
+            />
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </div>

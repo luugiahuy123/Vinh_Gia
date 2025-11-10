@@ -91,7 +91,6 @@
   gap: 0;
   font-size: 14px;
   line-height: 1.6;
-  margin-top: 15px;
   margin-left: 20px;
 }
 
@@ -140,5 +139,112 @@
   .page-container {
     margin: 10px;
     padding: 15px;
+  }
+}
+
+/* ====== PAGE TOOLS (dùng chung) ====== */
+.page-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 0 2px;
+}
+
+.page-head> :first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.page-head .page-tools {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  margin-right: 8px;
+}
+
+/* ====== SELECT FIX: ẩn arrow native + dùng arrow custom ====== */
+.page-tools .select-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.page-tools .select-wrap select {
+  -webkit-appearance: none;
+  /* Safari/Chrome */
+  -moz-appearance: none;
+  /* Firefox */
+  appearance: none;
+  /* Chuẩn */
+  height: 36px;
+  min-width: 130px;
+  padding: 0 34px 0 12px;
+  /* chừa chỗ cho mũi tên bên phải */
+  border-radius: 8px;
+  border: 1px solid var(--line, #e5e7eb);
+  background: #fff;
+  font-size: 14px;
+  line-height: 36px;
+  color: var(--ink, #1f2937);
+  cursor: pointer;
+}
+
+/* Arrow custom */
+.page-tools .select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-40%);
+  /* hơi nhích lên cho cân mắt */
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--muted, #6b7280);
+  pointer-events: none;
+  /* không chặn click */
+}
+
+/* Hover/Focus state */
+.page-tools .select-wrap select:hover {
+  border-color: #cfd5dc;
+}
+
+.page-tools .select-wrap select:focus {
+  outline: none;
+  border-color: #c06252;
+  box-shadow: 0 0 0 3px rgba(192, 98, 82, .15);
+  /* ring màu brand */
+}
+
+/* Ẩn mũi tên IE cũ (nếu có) */
+.page-tools .select-wrap select::-ms-expand {
+  display: none;
+}
+
+/* Tuỳ chọn: đồng nhất dropdown (giới hạn được ít trên trình duyệt) */
+.page-tools .select-wrap select option {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-head {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+
+  .page-head .page-tools {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .page-tools .select-wrap select {
+    min-width: 0;
   }
 }
