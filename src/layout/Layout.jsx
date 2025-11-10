@@ -16,6 +16,7 @@ import CareerPathPage from "../features/hr/career/CareerPathPage";
 import CertificatesPage from "../features/hr/certificates/CertificatesPage";
 import ProbationPage from "../features/hr/probation/ProbationPage";
 import SecurityPage from "../features/security/pages/SecurityPage";
+import SelfHome from "../features/selfService/components/SelfHome.jsx";
 
 import ProfileModal from "../features/profile/components/ProfileModal";
 import BreadcrumbsBar from "../components/common/BreadcrumbsBar"; // <- breadcrumbs
@@ -84,6 +85,7 @@ const Layout = ({ onLogout, isLoggedIn }) => {
 
           <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/self-service" element={<SelfHome />} />
             <Route path="/employee-profiles" element={<EmployeeManagement />} />
 
             {/* HR */}
