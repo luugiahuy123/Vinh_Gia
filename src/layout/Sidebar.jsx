@@ -83,7 +83,11 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             onClick={() => isOpen && toggleSection("requirements")}
           >
             <h3 className="section-title">Yêu cầu</h3>
-            {expandedSections.requirements ? <FaChevronDown /> : <FaChevronRight />}
+            {expandedSections.requirements ? (
+              <FaChevronDown />
+            ) : (
+              <FaChevronRight />
+            )}
           </div>
           {(isOpen ? expandedSections.requirements : true) && (
             <div className="menu-items">
@@ -100,18 +104,30 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             onClick={() => isOpen && toggleSection("personnel")}
           >
             <h3 className="section-title">Nhân sự</h3>
-            {expandedSections.personnel ? <FaChevronDown /> : <FaChevronRight />}
+            {expandedSections.personnel ? (
+              <FaChevronDown />
+            ) : (
+              <FaChevronRight />
+            )}
           </div>
           {(isOpen ? expandedSections.personnel : true) && (
             <div className="menu-items">
-              <Item to="/employee-profiles" icon={FaIdCard} text="Hồ sơ nhân sự" />
+              <Item
+                to="/employee-profiles"
+                icon={FaIdCard}
+                text="Hồ sơ nhân sự"
+              />
               <Item to="/hr/contracts" icon={FaFileContract} text="Hợp đồng" />
               <Item to="/hr/transfers" icon={FaExchangeAlt} text="Điều động" />
               <Item to="/hr/training" icon={FaGraduationCap} text="Đào tạo" />
               <Item to="/hr/rewards" icon={FaAward} text="Khen thưởng" />
               <Item to="/hr/disciplines" icon={FaGavel} text="Kỷ luật" />
               <Item to="/hr/career" icon={FaRoad} text="Lộ trình" />
-              <Item to="/hr/certificates" icon={FaCertificate} text="Chứng chỉ" />
+              <Item
+                to="/hr/certificates"
+                icon={FaCertificate}
+                text="Chứng chỉ"
+              />
               <Item to="/hr/probation" icon={FaUserClock} text="Thử việc" />
             </div>
           )}
@@ -124,13 +140,29 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             onClick={() => isOpen && toggleSection("structure")}
           >
             <h3 className="section-title">Tuyển dụng</h3>
-            {expandedSections.structure ? <FaChevronDown /> : <FaChevronRight />}
+            {expandedSections.structure ? (
+              <FaChevronDown />
+            ) : (
+              <FaChevronRight />
+            )}
           </div>
           {(isOpen ? expandedSections.structure : true) && (
             <div className="menu-items">
-              <Item to="/recruit/request" icon={FaFileSignature} text="Yêu cầu tuyển dụng" />
-              <Item to="/recruit/proposal" icon={FaBusinessTime} text="Ứng viên" />
-              <Item to="/recruit/interview" icon={FaUserCheck} text="Phỏng vấn" />
+              <Item
+                to="/recruit/request"
+                icon={FaFileSignature}
+                text="Yêu cầu tuyển dụng"
+              />
+              <Item
+                to="/recruit/proposal"
+                icon={FaBusinessTime}
+                text="Ứng viên"
+              />
+              <Item
+                to="/recruit/interview"
+                icon={FaUserCheck}
+                text="Phỏng vấn"
+              />
             </div>
           )}
         </div>
@@ -142,18 +174,38 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             onClick={() => isOpen && toggleSection("attendance")}
           >
             <h3 className="section-title">Chấm công & Lương</h3>
-            {expandedSections.attendance ? <FaChevronDown /> : <FaChevronRight />}
+            {expandedSections.attendance ? (
+              <FaChevronDown />
+            ) : (
+              <FaChevronRight />
+            )}
           </div>
           {(isOpen ? expandedSections.attendance : true) && (
             <div className="menu-items">
               <Item to="/attendance" icon={FaClock} text="Chấm công" />
               <Item to="/salary" icon={FaMoneyBillWave} text="Lương" />
-              <Item to="/daily-work" icon={FaCalendarDay} text="Công theo ngày" />
-              <Item to="/attendance-check" icon={FaCheckCircle} text="Kiểm tra công" />
+              <Item
+                to="/daily-work"
+                icon={FaCalendarDay}
+                text="Công theo ngày"
+              />
+              <Item
+                to="/attendance-check"
+                icon={FaCheckCircle}
+                text="Kiểm tra công"
+              />
               <Item to="/leave" icon={FaUmbrellaBeach} text="Nghỉ phép" />
               <Item to="/overtime" icon={FaBusinessTime} text="Tăng ca" />
-              <Item to="/payroll" icon={FaFileInvoiceDollar} text="Bảng lương" />
-              <Item to="/salary-calculation" icon={FaCalculator} text="Tính lương" />
+              <Item
+                to="/payroll"
+                icon={FaFileInvoiceDollar}
+                text="Bảng lương"
+              />
+              <Item
+                to="/salary-calculation"
+                icon={FaCalculator}
+                text="Tính lương"
+              />
             </div>
           )}
         </div>
@@ -170,8 +222,16 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           {(isOpen ? expandedSections.security : true) && (
             <div className="menu-items">
               <Item to="/security/users" icon={FaUsers} text="Người dùng" />
-              <Item to="/security/roles" icon={FaUserShield} text="Vai trò / Nhóm quyền" />
-              <Item to="/security/actions" icon={FaLock} text="Phân quyền hành động" />
+              <Item
+                to="/security/roles"
+                icon={FaUserShield}
+                text="Vai trò / Nhóm quyền"
+              />
+              <Item
+                to="/security/actions"
+                icon={FaLock}
+                text="Phân quyền hành động"
+              />
             </div>
           )}
         </div>
