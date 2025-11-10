@@ -20,7 +20,7 @@ import SecurityPage from "../features/security/pages/SecurityPage";
 import ProfileModal from "../features/profile/components/ProfileModal";
 import BreadcrumbsBar from "../components/common/BreadcrumbsBar"; // <- breadcrumbs
 
-import "../styles/Layout.css";
+import "../styles/layout/Layout.css";
 import ReactModal from "react-modal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

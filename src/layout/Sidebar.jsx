@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/brand/logo6.png";
-import "../styles/Sidebar.css";
+import "../styles/layout/Sidebar.css";
 
 import {
   FaTachometerAlt,

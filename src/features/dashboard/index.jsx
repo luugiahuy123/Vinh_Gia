@@ -1,22 +1,15 @@
-// src/features/dashboard/index.jsx
 import { useState } from "react";
-import "../../styles/Dashboard1.css";
+import "../../styles/dashboard/Dashboard.css";
+import "../../styles/layout/SizeCard.css";
 
-// Components
 import MonthPicker from "./components/MonthPicker";
 import KpiCard from "./components/KpiCard";
 import ExpiringList from "./components/ExpiringList";
 import Donut from "./components/Donut";
-import DualColumns from "./components/DualColumns"; // đây là component biểu đồ của bạn
+import DualColumns from "./components/DualColumns";
 import HBar from "./components/HBar";
 
-/* ====== MOCK DATA ====== */
-const KPIs = {
-  totalEmployees: 128,
-  hiredThisMonth: 6,
-  leftThisMonth: 2,
-  totaleEmploy: 126,
-};
+const KPIs = { totalEmployees: 128, hiredThisMonth: 6, leftThisMonth: 2, totaleEmploy: 126 };
 
 const deptShare = [
   { label: "Kế toán", value: 20 },
@@ -27,35 +20,30 @@ const deptShare = [
   { label: "IT", value: 10 },
 ];
 
-/* --- thêm định nghĩa monthly ở đây --- */
 const monthly = [
   { m: "Tháng 1", hire: 15, leave: 1 },
-  { m: "Tháng 2", hire: 1, leave: 1 },
+  { m: "Tháng 2", hire: 1,  leave: 1 },
   { m: "Tháng 3", hire: 20, leave: 1 },
-  { m: "Tháng 4", hire: 4, leave: 3 },
-  { m: "Tháng 5", hire: 2, leave: 2 },
-  { m: "Tháng 6", hire: 2, leave: 1 },
-  { m: "Tháng 7", hire: 1, leave: 1 },
-  { m: "Tháng 8", hire: 1, leave: 0 },
-  { m: "Tháng 9", hire: 1, leave: 0 },
-  { m: "Tháng 10", hire: 2, leave: 1 },
-  { m: "Tháng 11", hire: 4, leave: 3 },
-  { m: "Tháng 12", hire: 0, leave: 0 },
+  { m: "Tháng 4", hire: 4,  leave: 3 },
+  { m: "Tháng 5", hire: 2,  leave: 2 },
+  { m: "Tháng 6", hire: 2,  leave: 1 },
+  { m: "Tháng 7", hire: 1,  leave: 1 },
+  { m: "Tháng 8", hire: 1,  leave: 0 },
+  { m: "Tháng 9", hire: 1,  leave: 0 },
+  { m: "Tháng 10",hire: 2,  leave: 1 },
+  { m: "Tháng 11",hire: 4,  leave: 3 },
+  { m: "Tháng 12",hire: 0,  leave: 0 },
 ];
 
 const currentYear = new Date().getFullYear();
-
-/* guard: nếu monthly undefined thì dùng mảng rỗng */
-const dataByYear = {
-  [currentYear]: monthly || [],
-};
+const dataByYear = { [currentYear]: monthly || [] };
 
 const expiringContracts = [
-  { name: "Nguyễn Văn A", dept: "Sản xuất", due: "15/11/2025", daysLeft: 10 },
-  { name: "Trần Thị B", dept: "Kinh doanh", due: "28/11/2025", daysLeft: 23 },
-  { name: "Lê Văn C", dept: "Văn phòng", due: "05/12/2025", daysLeft: 30 },
-  { name: "Phạm Thị D", dept: "Sản xuất", due: "08/12/2025", daysLeft: 33 },
-  { name: "Phạm Văn E", dept: "Sản xuất", due: "30/12/2025", daysLeft: 45 },
+  { name: "Nguyễn Văn A", dept: "Sản xuất",   due: "15/11/2025", daysLeft: 10 },
+  { name: "Trần Thị B",   dept: "Kinh doanh", due: "28/11/2025", daysLeft: 23 },
+  { name: "Lê Văn C",     dept: "Văn phòng",  due: "05/12/2025", daysLeft: 30 },
+  { name: "Phạm Thị D",   dept: "Sản xuất",   due: "08/12/2025", daysLeft: 33 },
+  { name: "Phạm Văn E",   dept: "Sản xuất",   due: "30/12/2025", daysLeft: 45 },
 ];
 
 const ageBands = [
@@ -74,42 +62,45 @@ export default function Dashboard() {
 
   return (
     <div>
-      {/* Hàng 1: chọn tháng (bên trái) */}
+      {/* Hàng 1: chọn tháng */}
       <MonthPicker value={monthValue} onChange={setMonthValue} />
 
       <div className="hrdash grid-hr">
-        {/* Hàng 2: KPI */}
+        {/* Hàng 2: KPI (4 thẻ × 3 cột = 12 cột ở desktop) */}
         <KpiCard
           icon="users"
           label="Tổng nhân sự"
           value={128}
-          trend={[100, 105, 110, 112, 115, 118, 120, 123, 125, 126, 127, 128]}
-        />{" "}
+          trend={[100,105,110,112,115,118,120,123,125,126,127,128]}
+          gridClass="card-12 sm-card-4 md-card-3 lg-card-3"
+        />
         <KpiCard
-          trend={[3, 5, 6, 4, 8, 7, 9, 11, 10, 8, 6, 7]}
           icon="users"
           label="Nhân sự hiện hữu"
           value={KPIs.totaleEmploy}
+          trend={[3,5,6,4,8,7,9,11,10,8,6,7]}
           accent="qq"
+          gridClass="card-12 sm-card-4 md-card-3 lg-card-3"
         />
         <KpiCard
           icon="hire"
           label="Nhân sự mới (Tháng)"
           value={6}
-          trend={[2, 3, 4, 5, 7, 6, 5, 8, 9, 6, 7, 6]}
+          trend={[2,3,4,5,7,6,5,8,9,6,7,6]}
           accent="chart"
-
+          gridClass="card-12 sm-card-4 md-card-3 lg-card-3"
         />
         <KpiCard
           icon="leave"
           label="Nhân sự nghỉ việc (Tháng)"
           value={2}
-          trend={[1, 1, 2, 0, 1, 2, 1, 2, 3, 1, 1, 2]}
+          trend={[1,1,2,0,1,2,1,2,3,1,1,2]}
           accent="warn"
-
+          gridClass="card-12 sm-card-4 md-card-3 lg-card-3"
         />
-        {/* Hàng 3: 2 ô lớn */}
-        <div className="card bigCard">
+
+        {/* Hàng 3: 2 ô lớn (3/9 ở desktop; 6/6 ở md; full ở mobile) */}
+        <div className="card card-12 md-card-6 lg-card-3">
           <div className="cardHead">
             <div className="title">Hợp đồng sắp hết hạn</div>
             <button
@@ -121,15 +112,18 @@ export default function Dashboard() {
           </div>
           <ExpiringList items={expiringContracts} />
         </div>
-        <div className="card bigCard">
+
+        <div className="card card-12 md-card-6 lg-card-9">
           <DualColumns dataByYear={dataByYear} />
         </div>
-        {/* Hàng 4: 2 ô nửa */}
-        <div className="card bigHalf">
+
+        {/* Hàng 4: 2 ô nửa (chia đôi ở desktop & md; full ở mobile) */}
+        <div className="card listCard card-12 md-card-6 lg-card-6">
           <div className="title">Tỷ lệ nhân sự theo phòng ban</div>
           <Donut series={deptShare} />
         </div>
-        <div className="card listCard bigHalf">
+
+        <div className="card listCard card-12 md-card-6 lg-card-6">
           <div className="title">Tỷ lệ độ tuổi lao động</div>
           <HBar items={ageBands} />
         </div>

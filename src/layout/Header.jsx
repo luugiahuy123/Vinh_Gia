@@ -1,9 +1,7 @@
-// src/layouts/Header.jsx
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserDropdown from '../features/auth/components/UserDropdown';
 import { FaBell } from 'react-icons/fa';
-import '../styles/Header.css';
+import '../styles/layout/Header.css';
 
 // Nút chuông thông báo
 function NotificationsBell() {
