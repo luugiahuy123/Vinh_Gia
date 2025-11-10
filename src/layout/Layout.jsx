@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import Header from "./Header";
 import Sidebar from "./Sidebar";
@@ -18,8 +18,8 @@ import ProbationPage from "../features/hr/probation/ProbationPage";
 import SecurityPage from "../features/security/pages/SecurityPage";
 
 import ProfileModal from "../features/profile/components/ProfileModal";
-import BreadcrumbsBar from "../components/common/BreadcrumbsBar"; // <- breadcrumbs
-
+import BreadcrumbsBar from "../components/common/BreadcrumbsBar";
+import MonthPicker from "../features/dashboard/components/MonthPicker"; // <-- THÊM
 import "../styles/Layout.css";
 import ReactModal from "react-modal";
 import { ToastContainer } from "react-toastify";
@@ -38,6 +38,15 @@ const Layout = ({ onLogout, isLoggedIn }) => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [profileOpen, setProfileOpen] = useState(false);
   const [profileTick, setProfileTick] = useState(0);
+
+  // state cho MonthPicker dùng chung dashboard
+  const [monthValue, setMonthValue] = useState(() => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+  });
+
+  const loc = useLocation();
+  const isDashboard = loc.pathname === "/dashboard"; // cần đúng đường dẫn của bạn
 
   const toggleSidebar = () => setSidebarOpen((v) => !v);
   const handleProfileUpdated = () => setProfileTick((t) => t + 1);
@@ -58,11 +67,20 @@ const Layout = ({ onLogout, isLoggedIn }) => {
 
       <div className="main-container">
         <div className="main-content">
-          {/* Breadcrumbs toàn app */}
-          <BreadcrumbsBar />
+          {/* Header trang: Breadcrumbs (trái) + filter (phải) */}
+          <div className="page-head">
+            <BreadcrumbsBar />
+            {isDashboard && (
+              <MonthPicker value={monthValue} onChange={setMonthValue} />
+            )}
+          </div>
 
           <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
+            {/* Truyền monthValue vào Dashboard nếu cần dùng */}
+            <Route
+              path="/dashboard"
+              element={<Dashboard monthValue={monthValue} />}
+            />
             <Route path="/employee-profiles" element={<EmployeeManagement />} />
 
             {/* HR */}

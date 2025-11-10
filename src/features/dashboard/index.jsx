@@ -8,7 +8,7 @@ import KpiCard from "./components/KpiCard";
 import ExpiringList from "./components/ExpiringList";
 import Donut from "./components/Donut";
 import DualColumns from "./components/DualColumns"; // đây là component biểu đồ của bạn
-import HBar from "./components/HBar";
+  import HBar from "./components/HBar";
 
 /* ====== MOCK DATA ====== */
 const KPIs = {
@@ -43,7 +43,7 @@ const monthly = [
   { m: "Tháng 12", hire: 0, leave: 0 },
 ];
 
-const currentYear = new Date().getFullYear();
+   const currentYear = new Date().getFullYear();
 
 /* guard: nếu monthly undefined thì dùng mảng rỗng */
 const dataByYear = {
@@ -74,9 +74,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      {/* Hàng 1: chọn tháng (bên trái) */}
-      <MonthPicker value={monthValue} onChange={setMonthValue} />
-
+     
       <div className="hrdash grid-hr">
         {/* Hàng 2: KPI */}
         <KpiCard
