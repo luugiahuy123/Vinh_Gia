@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
-import test from "./test.jsx";
+
 import Dashboard from "../features/dashboard/index.jsx";
 import EmployeeManagement from "../features/employees/EmployeeManagement";
 import ContractsPage from "../features/hr/contracts/ContractsPage.jsx";
@@ -104,7 +104,7 @@ const Layout = ({ onLogout, isLoggedIn }) => {
       </div>
 
       <Footer />
-      <test/>
+
       <ProfileModal
         isOpen={profileOpen}
         onClose={() => setProfileOpen(false)}
