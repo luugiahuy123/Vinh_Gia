@@ -1,0 +1,204 @@
+/* =========================================
+   VINH GIA TABLES — Company-branded styles
+   (header <th> dùng nền #0e6481, chữ trắng cho TẤT CẢ)
+   ========================================= */
+
+/* Palette */
+:root {
+    --vg-accent: #0e6481;
+
+    --vg-border: #eadedb;
+    --vg-line: #e5e7eb;
+
+    --vg-text: #0f172a;
+    --vg-muted: #8b6f67;
+
+    --vg-hover: rgba(150, 212, 233, 0.10);
+    /* nhẹ theo brand */
+
+    /* Header colors (áp cho mọi <th>) */
+    --vg-head-bg: #0e6481;
+    --vg-head-fg: #ffffff;
+
+    --vg-tbl-font: 14px;
+    --vg-tbl-radius: 14px;
+    --vg-tbl-py: 11px;
+    --vg-tbl-px: 14px;
+    --vg-tbl-row-h: 44px;
+}
+
+/* ===== Wrapper ===== */
+.vg-table-wrap {
+    background: #fff;
+    border-radius: var(--vg-tbl-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(18, 18, 18, .05);
+}
+
+/* Scrollable wrapper (opt-in) */
+.vg-table-wrap.vg-scroll {
+    overflow: auto;
+    max-height: 60vh;
+}
+
+/* ===== Base table ===== */
+.vg-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: var(--vg-tbl-font);
+    color: var(--vg-text);
+    background: #fff;
+}
+
+/* Header — đồng bộ màu nền & chữ cho TẤT CẢ th */
+.vg-table thead th {
+    background: var(--vg-head-bg);
+    color: var(--vg-head-fg);
+    text-align: left;
+    padding: 12px var(--vg-tbl-px);
+    font-weight: 700;
+    border-bottom: 1px solid var(--vg-border);
+}
+
+/* Sticky header (opt-in) */
+.vg-table.vg-sticky thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* Body cells */
+.vg-table tbody td {
+    padding: var(--vg-tbl-py) var(--vg-tbl-px);
+    border-bottom: 1px solid var(--vg-line);
+    color: var(--vg-text);
+    height: var(--vg-tbl-row-h);
+    vertical-align: middle;
+}
+
+/* Row hover */
+.vg-table tbody tr:hover {
+    background: var(--vg-hover);
+}
+
+/* Tắt hover (opt-in) */
+.vg-table.vg-hover-off tbody tr:hover {
+    background: transparent;
+}
+
+/* Clickable row */
+.vg-table tr.vg-row-clickable {
+    cursor: pointer;
+}
+
+/* ===== Modifiers ===== */
+
+/* Vertical dividers (grid) */
+.vg-table.vg-grid td+td,
+.vg-table.vg-grid th+th {
+    border-left: 1px solid #f1f5f9;
+}
+
+/* Density */
+.vg-table.vg-compact td,
+.vg-table.vg-compact th {
+    padding: 8px 10px;
+    font-size: 13px;
+}
+
+.vg-table.vg-cozy td,
+.vg-table.vg-cozy th {
+    padding: 12px 14px;
+    font-size: 14px;
+}
+
+/* Align helpers */
+.vg-right {
+    text-align: right !important;
+}
+
+.vg-center {
+    text-align: center  !important;
+}
+
+/* No wrap / Ellipsis */
+.vg-nowrap {
+    white-space: nowrap ;
+}
+
+.vg-ellipsis {
+    max-width: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+/* Sticky first column (opt-in) */
+.vg-table.vg-sticky-first td:first-child,
+.vg-table.vg-sticky-first th:first-child {
+    position: sticky;
+    left: 0;
+    background: #fff;
+    /* giữ trắng để đọc tốt */
+    z-index: 2;
+    box-shadow: 1px 0 0 0 var(--vg-line);
+}
+
+/* ===== Mobile card layout (OPT-IN bằng .vg-cardify) ===== */
+@media (max-width: 720px) {
+
+    .vg-table.vg-cardify,
+    .vg-table.vg-cardify thead,
+    .vg-table.vg-cardify tbody,
+    .vg-table.vg-cardify th,
+    .vg-table.vg-cardify td,
+    .vg-table.vg-cardify tr {
+        display: block;
+        width: 100%;
+    }
+
+    .vg-table.vg-cardify thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .vg-table.vg-cardify tbody tr {
+        background: #fff;
+        border: 1px solid var(--vg-border);
+        border-radius: 12px;
+        margin: 10px 10px 12px;
+        padding: 8px 10px;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, .04);
+    }
+
+    .vg-table.vg-cardify tbody td {
+        border: none;
+        border-bottom: 1px dashed var(--vg-border);
+        position: relative;
+        padding: 10px 10px 10px 120px;
+        /* label space */
+        min-height: 42px;
+    }
+
+    .vg-table.vg-cardify tbody td:last-child {
+        border-bottom: none;
+    }
+
+    /* Hiển thị label bằng data-label */
+    .vg-table.vg-cardify tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        width: 100px;
+        font-size: 12px;
+        color: var(--vg-muted);
+        font-weight: 700;
+        white-space: nowrap;
+    }
+}

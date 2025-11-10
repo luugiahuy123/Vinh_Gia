@@ -1,0 +1,158 @@
+/* =========================================
+   VINH GIA BUTTONS — Company-branded styles
+   ========================================= */
+
+:root {
+    --vg-brand: #0e6481;
+    --vg-brand-600: #b25747;
+    --vg-brand-700: #9f4e40;
+    --vg-bg: #ffffff;
+    --vg-text: #0f172a;
+    --vg-muted: #6b7280;
+    --vg-border: #e5e7eb;
+    --vg-ring: rgba(192, 98, 82, .35);
+}
+
+/* ===== Base ===== */
+.vg-btn {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border: 1px solid var(--vg-border);
+    background: var(--vg-bg);
+    color: var(--vg-text);
+
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 12px;
+
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+
+    transition:
+        transform .04s ease,
+        box-shadow .12s ease,
+        background .12s ease,
+        border-color .12s ease,
+        filter .12s ease;
+}
+
+.vg-btn:active {
+    transform: translateY(1px);
+}
+
+.vg-btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--vg-ring);
+}
+
+.vg-btn[disabled] {
+    opacity: .55;
+    cursor: not-allowed;
+    filter: grayscale(.1);
+}
+
+/* ===== Variants ===== */
+.vg-btn--primary {
+    background: #fff;
+    border-color: var(--vg-brand);
+    color: var(--vg-brand);
+}
+
+.vg-btn--primary:hover {
+    background: #ebf3fb;
+}
+
+.vg-btn--ghost {
+    background: #fff;
+    border-color: var(--vg-brand);
+    color: var(--vg-brand);
+}
+
+.vg-btn--ghost:hover {
+    background: #fbeeeb;
+}
+
+.vg-btn--danger {
+    background: #fff;
+    border-color: var(--vg-brand);
+    color: var(--vg-brand);
+}
+
+.vg-btn--danger:hover {
+    background: #fbeeeb;
+}
+
+/* Link-like button (text only) */
+.vg-btn--link {
+    background: transparent;
+    border-color: transparent;
+    color: var(--vg-brand);
+    height: auto;
+    padding: 0;
+    border-radius: 6px;
+}
+
+.vg-btn--link:hover {
+    text-decoration: underline;
+}
+
+/* ===== Sizes ===== */
+.vg-btn--sm {
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.vg-btn--lg {
+    height: 46px;
+    padding: 0 16px;
+    border-radius: 14px;
+    font-size: 15px;
+}
+
+/* ===== Pill option ===== */
+.vg-btn--pill {
+    border-radius: 999px;
+}
+
+/* ===== Icon-only button ===== */
+.vg-iconbtn {
+    appearance: none;
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid var(--vg-border);
+    background: var(--vg-bg);
+    color: var(--vg-text);
+    cursor: pointer;
+    transition: background .12s ease, box-shadow .12s ease, transform .04s ease;
+}
+
+.vg-iconbtn:hover {
+    background: rgba(15, 23, 42, .06);
+}
+
+.vg-iconbtn:active {
+    transform: translateY(1px);
+}
+
+.vg-iconbtn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--vg-ring);
+}
+
+/* ===== Button group (optional) ===== */
+.vg-btn-group {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+}

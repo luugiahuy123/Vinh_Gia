@@ -1,0 +1,135 @@
+/* =========================================
+   VINH GIA INPUTS — Company-branded fields
+   ========================================= */
+
+:root {
+    --vg-brand: #0e6481;
+    --vg-text: #0f172a;
+    --vg-muted: #6b7280;
+    --vg-bg: #ffffff;
+    --vg-border: #e5e7eb;
+    --vg-ring: rgba(192, 98, 82, .35);
+}
+
+[data-theme="dark"] :root,
+.theme-dark :root {
+    --vg-bg: #0b1220;
+    --vg-text: #e5e7eb;
+    --vg-muted: #94a3b8;
+    --vg-border: #243246;
+}
+
+/* ===== Field wrapper & label ===== */
+.vg-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.vg-label {
+    color: var(--vg-brand);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ===== Controls ===== */
+.vg-input,
+.vg-select,
+.vg-textarea {
+    width: 100%;
+    border: 1px solid var(--vg-border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: var(--vg-bg);
+    color: var(--vg-text);
+    outline: none;
+    transition: box-shadow .12s ease, border-color .12s ease, background .12s ease;
+}
+
+.vg-input:focus,
+.vg-select:focus,
+.vg-textarea:focus {
+    border-color: var(--vg-brand);
+    box-shadow: 0 0 0 4px #0e648175;
+}
+
+/* ===== States ===== */
+.vg-control--error {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, .15) !important;
+}
+
+.vg-control--success {
+    border-color: #16a34a !important;
+    box-shadow: 0 0 0 4px rgba(22, 163, 74, .15) !important;
+}
+
+.vg-control--disabled {
+    opacity: .6;
+    background: rgba(0, 0, 0, .03);
+    cursor: not-allowed;
+}
+
+.vg-control--readonly {
+    background: rgba(0, 0, 0, .02);
+}
+
+/* ===== Help text / error text ===== */
+.vg-help {
+    font-size: 12px;
+    color: var(--vg-muted);
+}
+
+.vg-help--error {
+    color: #ef4444;
+}
+
+.vg-help--success {
+    color: #16a34a;
+}
+
+/* ===== Sizes ===== */
+.vg-input--sm,
+.vg-select--sm,
+.vg-textarea--sm {
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.vg-input--lg,
+.vg-select--lg,
+.vg-textarea--lg {
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+/* ===== Textarea specifics ===== */
+.vg-textarea {
+    min-height: 92px;
+    resize: vertical;
+}
+
+/* ===== Inline (grid) layout helpers ===== */
+.vg-form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+@media (min-width: 768px) {
+    .vg-form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .vg-form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .vg-form-grid.vg-4cols {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
