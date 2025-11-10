@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { loginApi, saveAuth } from "../auth.api.jsx";
 import bgImage from "../../../assets/brand/bg.png";
-import "../../../styles/Login.css";
+import "../../../styles/auth/Login.css";
 import logo from "../../../assets/brand/logo6.png";
 
 export default function Login({ onLogin }) {

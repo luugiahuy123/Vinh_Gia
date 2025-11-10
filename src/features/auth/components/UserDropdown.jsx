@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import '../../../styles/UserDropdown.css';
+import '../../../styles/auth/UserDropdown.css';
 
 import {
   FaUserCircle, FaCog, FaSignOutAlt, FaChevronDown, FaChevronRight,

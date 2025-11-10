@@ -9,8 +9,12 @@
 
 /* Lưới mặc định: 12 cột */
 .grid-hr {
+  display: grid;                 /* QUAN TRỌNG */
+  gap: 16px;                     /* spacing giữa cards */
   grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(120px, auto);
 }
+
 
 /* ---- Column span (default) ---- */
 .card-1 { grid-column: span 1; }

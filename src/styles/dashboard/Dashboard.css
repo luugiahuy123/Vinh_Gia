@@ -35,13 +35,7 @@
   /* Không set margin-left ở đây */
 }
 
-/* Lưới bố cục dashboard */
-.grid-hr {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: minmax(120px, auto);
-}
+/* (ĐÃ BỎ) Lưới bố cục dashboard: dùng từ SIZECARD.CSS */
 
 /* Card chung */
 .card {
@@ -60,6 +54,7 @@
 
 /* ====== HÀNG 1: THÁNG/NĂM ====== */
 .month-picker {
+  /* Cho phép full-width theo hàng trong grid */
   grid-column: 1 / -1;
   display: flex;
   justify-content: flex-end;
@@ -78,7 +73,8 @@
 .month-picker button:hover { background: #094d61; }
 
 /* ====== KPI (HÀNG 1) ====== */
-.kpi { grid-column: span 3; display: flex; align-items: center; gap: 20px; }
+/* (ĐÃ BỎ grid-column) */
+.kpi { display: flex; align-items: center; gap: 20px; }
 .kpi .kpiIcon { border: 1px solid rgb(14 100 129); width: 55px; height: 55px; border-radius: 12px; background: rgba(47,128,237,.1); display:flex; align-items:center; justify-content:center; }
 .kpi .kpiIcon.qq { background: rgb(2 255 0 / 14%); border-color: #87e083; }
 .kpi .kpiIcon.chart { background: rgba(76,125,255,.08); border-color: #cddafc; }
@@ -89,9 +85,6 @@
 .kpiIco.leave { color: var(--leave); }
 .kpiLabel  { font-size: 15px; color: var(--muted); font-weight: bold; }
 .kpiNumber { font-size: 30px; font-weight: 800; color: var(--brand); }
-
-/* ====== ROW 2 (BIG CHARTS) ====== */
-.bigCard { grid-column: span 6; }
 
 /* Donut chart */
 .donutWrap { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
@@ -132,7 +125,8 @@
 .tdHire { color: var(--hire); font-weight:600; } .tdLeave { color: var(--leave); font-weight:600; }
 
 /* ====== ROW 3 (Half cards, Alerts, HBars) ====== */
-.bigHalf { grid-column: span 6; }
+/* (ĐÃ BỎ grid-column trong .bigHalf) */
+.bigHalf { /* chỉ giữ style khối nếu cần thêm sau */ }
 
 /* Card header */
 .cardHead { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
@@ -171,19 +165,10 @@
 /* Chart container */
 .chartContainer { width:100%; height:320px; }
 
-/* ====== RESPONSIVE ====== */
-@media (max-width: 1200px) {
-  .grid-hr { grid-template-columns: repeat(6, 1fr); }
-  .kpi { grid-column: span 2; }
-  .bigCard, .bigHalf { grid-column: span 6; }
-}
-@media (max-width: 900px) {
-  .grid-hr { grid-template-columns: repeat(4, 1fr); }
-  .kpi { grid-column: span 4; }
-}
+/* ====== RESPONSIVE ======
+   (ĐÃ BỎ toàn bộ rule đổi grid-column; SizeCard.css xử lý)
+*/
 @media (max-width: 640px) {
-  .grid-hr { grid-template-columns: repeat(2, 1fr); }
-  .kpi, .bigCard, .bigHalf { grid-column: span 2; }
   .dualColsInner { height: 220px; }
 
   /* Mobile: dashboard không đẩy theo sidebar */
